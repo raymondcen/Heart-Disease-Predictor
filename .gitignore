@@ -207,4 +207,4 @@ marimo/_lsp/
 __marimo__/
 
 #data
-data/heart_2022_with_nans.csv
+notebook/data/heart_2022_with_nans.csv
