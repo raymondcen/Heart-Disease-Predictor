@@ -208,3 +208,4 @@ __marimo__/
 
 #data
 notebook/data/heart_2022_with_nans.csv
+notebook/data/heart_clean.csv
