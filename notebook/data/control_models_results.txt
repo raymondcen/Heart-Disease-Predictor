@@ -1,0 +1,80 @@
+TIME TO RUN 5.2: 36m 49.3s
+
+Model: Logistic Regression
+Train Metrics:
+  Accuracy: 0.9486
+  Precision: 0.5720
+  Recall: 0.2555
+  F1 Score: 0.3532
+Test Metrics:
+  Accuracy: 0.9490
+  Precision: 0.5516
+  Recall: 0.2519
+  F1 Score: 0.3459
+  ROC AUC: 0.8876
+========================================
+Model: Random Forest
+Train Metrics:
+  Accuracy: 1.0000
+  Precision: 1.0000
+  Recall: 0.9993
+  F1 Score: 0.9996
+Test Metrics:
+  Accuracy: 0.9487
+  Precision: 0.5660
+  Recall: 0.1759
+  F1 Score: 0.2684
+  ROC AUC: 0.8655
+========================================
+Model: XGBoost
+Train Metrics:
+  Accuracy: 0.9588
+  Precision: 0.7760
+  Recall: 0.3496
+  F1 Score: 0.4821
+Test Metrics:
+  Accuracy: 0.9488
+  Precision: 0.5499
+  Recall: 0.2367
+  F1 Score: 0.3309
+  ROC AUC: 0.8834
+========================================
+Model: CatBoost
+Train Metrics:
+  Accuracy: 0.9630
+  Precision: 0.8634
+  Recall: 0.3862
+  F1 Score: 0.5337
+Test Metrics:
+  Accuracy: 0.9492
+  Precision: 0.5580
+  Recall: 0.2375
+  F1 Score: 0.3332
+  ROC AUC: 0.8887
+========================================
+Model: Decision Tree
+Train Metrics:
+  Accuracy: 1.0000
+  Precision: 1.0000
+  Recall: 1.0000
+  F1 Score: 1.0000
+Test Metrics:
+  Accuracy: 0.9197
+  Precision: 0.2665
+  Recall: 0.2861
+  F1 Score: 0.2760
+  ROC AUC: 0.6208
+========================================
+Model: K-Nearest Neighbors
+Train Metrics:
+  Accuracy: 0.9529
+  Precision: 0.8046
+  Recall: 0.1872
+  F1 Score: 0.3037
+Test Metrics:
+  Accuracy: 0.9454
+  Precision: 0.4409
+  Recall: 0.0794
+  F1 Score: 0.1346
+  ROC AUC: 0.7014
+========================================
