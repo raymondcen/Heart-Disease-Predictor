@@ -51,9 +51,21 @@ class ModelTrainer:
                 models=models
             )
 
-            results_df = pd.DataFrame.from_dict(model_report, orient='index')
-            results_df = results_df.apply(lambda x: pd.Series(x['test']), axis=1)  # Only show test scores
-            print(results_df)
+            #save report
+            report_file = os.path.join("artifacts", "model_results.txt")
+            os.makedirs("artifacts", exist_ok=True)
+            with open(report_file, "w") as f:
+                # Sort models by test F1 score
+                sorted_models = sorted(model_report.items(), key=lambda x: x[1]["test"]["f1"], reverse=True)
+                for model_name, scores in sorted_models:
+                    f.write(f"Model: {model_name}\n")
+                    f.write("Train Metrics:\n")
+                    for metric, value in scores["train"].items():
+                        f.write(f"  {metric.replace('_',' ').title()}: {value:.4f}\n")
+                    f.write("Test Metrics:\n")
+                    for metric, value in scores["test"].items():
+                        f.write(f"  {metric.replace('_',' ').title()}: {value:.4f}\n")
+                    f.write("="*40 + "\n")
 
 
             ## best model name and f1 score
