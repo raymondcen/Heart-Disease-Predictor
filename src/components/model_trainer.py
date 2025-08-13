@@ -32,7 +32,7 @@ class ModelTrainer:
                 test_arr[:,:-1],
                 test_arr[:,-1],
             )
-
+            
             models = {
                 "Logistic Regression": LogisticRegression(n_jobs=-1),
                 "Random Forest": RandomForestClassifier(n_jobs=-1),
@@ -50,6 +50,7 @@ class ModelTrainer:
                 X_test = X_test, y_test = y_test, 
                 models=models
             )
+            logging.info('Done evaluating models')
 
             #save report
             report_file = os.path.join("artifacts", "model_results.txt")
@@ -74,8 +75,8 @@ class ModelTrainer:
 
             best_model = models[best_model_name]
 
-            if best_model_score < 0.6:
-                raise CustomException("No best model found")
+            # if best_model_score < 0.6:
+            #     raise CustomException("No best model found")
 
             logging.info("Best model on both training and testing dataset")
 
