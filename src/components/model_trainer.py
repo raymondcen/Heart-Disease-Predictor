@@ -53,7 +53,7 @@ class ModelTrainer:
             logging.info('Done evaluating models')
 
             #save report
-            report_file = os.path.join("artifacts", "model_results.txt")
+            report_file = os.path.join("notebook/data", "model_trainer_results.txt")
             os.makedirs("artifacts", exist_ok=True)
             with open(report_file, "w") as f:
                 # Sort models by test F1 score

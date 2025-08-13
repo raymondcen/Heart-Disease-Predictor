@@ -1,0 +1,96 @@
+Model: Logistic Regression
+Train Metrics:
+  Accuracy: 0.9468
+  Precision: 0.5711
+  Recall: 0.2360
+  F1: 0.3340
+Test Metrics:
+  Accuracy: 0.9454
+  Precision: 0.5729
+  Recall: 0.2386
+  F1: 0.3369
+========================================
+Model: GradientBoosting
+Train Metrics:
+  Accuracy: 0.9477
+  Precision: 0.5897
+  Recall: 0.2398
+  F1: 0.3410
+Test Metrics:
+  Accuracy: 0.9457
+  Precision: 0.5834
+  Recall: 0.2308
+  F1: 0.3308
+========================================
+Model: XGBoost
+Train Metrics:
+  Accuracy: 0.9533
+  Precision: 0.7025
+  Recall: 0.3010
+  F1: 0.4214
+Test Metrics:
+  Accuracy: 0.9447
+  Precision: 0.5576
+  Recall: 0.2336
+  F1: 0.3292
+========================================
+Model: CatBoost
+Train Metrics:
+  Accuracy: 0.9579
+  Precision: 0.8068
+  Recall: 0.3351
+  F1: 0.4735
+Test Metrics:
+  Accuracy: 0.9449
+  Precision: 0.5655
+  Recall: 0.2260
+  F1: 0.3229
+========================================
+Model: AdaBoost
+Train Metrics:
+  Accuracy: 0.9458
+  Precision: 0.5528
+  Recall: 0.2056
+  F1: 0.2997
+Test Metrics:
+  Accuracy: 0.9450
+  Precision: 0.5725
+  Recall: 0.2114
+  F1: 0.3087
+========================================
+Model: Random Forest
+Train Metrics:
+  Accuracy: 1.0000
+  Precision: 1.0000
+  Recall: 0.9993
+  F1: 0.9996
+Test Metrics:
+  Accuracy: 0.9459
+  Precision: 0.6150
+  Recall: 0.1847
+  F1: 0.2841
+========================================
+Model: Decision Tree
+Train Metrics:
+  Accuracy: 1.0000
+  Precision: 1.0000
+  Recall: 0.9999
+  F1: 1.0000
+Test Metrics:
+  Accuracy: 0.9143
+  Precision: 0.2732
+  Recall: 0.2863
+  F1: 0.2796
+========================================
+Model: K-Nearest Neighbors
+Train Metrics:
+  Accuracy: 0.9530
+  Precision: 0.7516
+  Recall: 0.2516
+  F1: 0.3770
+Test Metrics:
+  Accuracy: 0.9421
+  Precision: 0.5062
+  Recall: 0.1514
+  F1: 0.2331
+========================================
