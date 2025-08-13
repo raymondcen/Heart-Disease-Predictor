@@ -65,7 +65,8 @@ class DataTransformation:
                 [
                     ('num_pipeline', num_pipeline, numerical_columns),
                     ('cat_pipeline', cat_pipeline, categorical_columns)
-                ]
+                ],
+                n_jobs=-1
             )
 
             return preprocessor
