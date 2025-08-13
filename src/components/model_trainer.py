@@ -51,6 +51,11 @@ class ModelTrainer:
                 models=models
             )
 
+            results_df = pd.DataFrame.from_dict(model_report, orient='index')
+            results_df = results_df.apply(lambda x: pd.Series(x['test']), axis=1)  # Only show test scores
+            print(results_df)
+
+
             ## best model name and f1 score
             best_model_name = max(model_report, key=lambda m: model_report[m]["test"]["f1"])
             best_model_score = model_report[best_model_name]["test"]["f1"]
