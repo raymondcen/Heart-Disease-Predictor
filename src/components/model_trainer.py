@@ -44,6 +44,7 @@ class ModelTrainer:
                 "K-Nearest Neighbors": KNeighborsClassifier(n_jobs=-1),
             }
             
+            logging.info('Evaluating models')
             model_report:dict=evaluate_models(
                 X_train=X_train, y_train=y_train, 
                 X_test = X_test, y_test = y_test, 
