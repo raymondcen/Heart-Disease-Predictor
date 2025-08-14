@@ -46,19 +46,6 @@ class ModelTrainer:
             X_train = X_train[idx]
             y_train = y_train[idx]
             
-            
-
-            models = {
-                "Logistic Regression": LogisticRegression(),
-                "Random Forest": RandomForestClassifier(),
-                # "Decision Tree": DecisionTreeClassifier(),
-                "XGBoost": XGBClassifier(), 
-                "CatBoost": CatBoostClassifier(verbose=False),
-                # "AdaBoost": AdaBoostClassifier(),
-                "GradientBoosting": GradientBoostingClassifier(),
-                # "K-Nearest Neighbors": KNeighborsClassifier(),
-            }
-
             #xgboost imbalance
             from collections import Counter
 
@@ -67,12 +54,28 @@ class ModelTrainer:
             n_positive = counter[1]
 
             scale_pos_weight = n_negative / n_positive
-            logging.info(f"Scale pos weight: {scale_pos_weight}")
 
-            if "XGBoost" in models:
-                models["XGBoost"].set_params(scale_pos_weight=scale_pos_weight)
+            models = {
+                "Logistic Regression": LogisticRegression(),
+                "Random Forest": RandomForestClassifier(
 
+                ),
+                # "Decision Tree": DecisionTreeClassifier(),
+                "XGBoost": XGBClassifier(
+                    scale_pos_weight=scale_pos_weight,
+                    tree_method='gpu_hist',
+                    predictor='gpu_predictor',
+                ), 
+                "CatBoost": CatBoostClassifier(
+                    verbose=False,
+                    task_type='GPU',  
+                ),
+                # "AdaBoost": AdaBoostClassifier(),
+                "GradientBoosting": GradientBoostingClassifier(),
+                # "K-Nearest Neighbors": KNeighborsClassifier(),
+            }
 
+    
             #get params
             with open("src/components/params.yaml", "r") as f:
                 params=yaml.safe_load(f)
