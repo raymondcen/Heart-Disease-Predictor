@@ -10,8 +10,9 @@ from xgboost import XGBClassifier
 from catboost import CatBoostClassifier
 
 import yaml
-import json
 from collections import Counter
+
+import numpy as np
 
 
 
@@ -37,22 +38,43 @@ class ModelTrainer:
                 train_arr[:,-1],
                 test_arr[:,:-1],
                 test_arr[:,-1],
+
             )
 
+            sample_size = 50000  # 50k rows
+            idx = np.random.choice(len(X_train), sample_size, replace=False)
+            X_train = X_train[idx]
+            y_train = y_train[idx]
+            
+            
 
             models = {
                 "Logistic Regression": LogisticRegression(),
                 "Random Forest": RandomForestClassifier(),
-                "Decision Tree": DecisionTreeClassifier(),  # single-thread only
-                "XGBoost": XGBClassifier(tree_method="hist"),  # hist = faster
+                # "Decision Tree": DecisionTreeClassifier(),
+                "XGBoost": XGBClassifier(), 
                 "CatBoost": CatBoostClassifier(verbose=False),
-                "AdaBoost": AdaBoostClassifier(),  # single-thread only
-                "GradientBoosting": GradientBoostingClassifier(),  # single-thread only
-                "K-Nearest Neighbors": KNeighborsClassifier(),
+                # "AdaBoost": AdaBoostClassifier(),
+                "GradientBoosting": GradientBoostingClassifier(),
+                # "K-Nearest Neighbors": KNeighborsClassifier(),
             }
 
+            #xgboost imbalance
+            from collections import Counter
+
+            counter = Counter(y_train)
+            n_negative = counter[0]
+            n_positive = counter[1]
+
+            scale_pos_weight = n_negative / n_positive
+            logging.info(f"Scale pos weight: {scale_pos_weight}")
+
+            if "XGBoost" in models:
+                models["XGBoost"].set_params(scale_pos_weight=scale_pos_weight)
+
+
             #get params
-            with open("params.yml", "r") as f:
+            with open("src/components/params.yaml", "r") as f:
                 params=yaml.safe_load(f)
 
 
@@ -66,7 +88,7 @@ class ModelTrainer:
             logging.info('Done evaluating models')
 
             #save report
-            report_file = os.path.join("notebook/data", "model_trainer_results.json")
+            report_file = os.path.join("src/components/model_tuned_results", "model_tuned_results.json")
             save_model_report_json(model_report, report_file)
 
             ## best model name and f1 score

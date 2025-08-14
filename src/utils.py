@@ -8,6 +8,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
 
 from src.exception import CustomException
+from src.logger import logging
 
 import json
 
@@ -29,15 +30,17 @@ def evaluate_models(X_train, y_train, X_test, y_test, models,params):
             model_name = list(models.keys())[i]
             model = list(models.values())[i]
 
-            params=params.get(model_name, {})
+            params_model=params.get(model_name, {})
+            itr =max(1, min(65, len(params_model)))  # ensures n_iter >= 1
+
 
             #fine tune, find best hyperparamters
             gs = RandomizedSearchCV(
                     model, 
-                    params, 
-                    n_inter=50,
+                    params_model, 
+                    n_iter = itr,
                     cv=3, 
-                    n_jobs=-1, 
+                    n_jobs=4, 
                     scoring="f1",
                     random_state=42,
                 )
@@ -80,10 +83,31 @@ def evaluate_models(X_train, y_train, X_test, y_test, models,params):
         raise CustomException(e, sys)
     
 
-def save_model_report_json(model_report: dict, file_path: str):
+def save_model_report_json(model_report: dict, base_path: str):
+    """
+    Saves model report as JSON with a sequential filename.
+    
+    base_path: e.g., 'notebook/data/model_trainer_results.json'
+    """
+    os.makedirs(os.path.dirname(base_path), exist_ok=True)
 
-    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    # Find next available sequential filename
+    dir_name = os.path.dirname(base_path)
+    base_name = os.path.splitext(os.path.basename(base_path))[0]
+    ext = ".json"
+    
+    existing_files = [f for f in os.listdir(dir_name) if f.startswith(base_name) and f.endswith(ext)]
+    existing_indices = []
+    for f in existing_files:
+        parts = f.replace(ext, "").split("_")
+        if parts[-1].isdigit():
+            existing_indices.append(int(parts[-1]))
+    next_index = max(existing_indices, default=0) + 1
 
+    new_file_name = f"{base_name}_{next_index}{ext}"
+    full_path = os.path.join(dir_name, new_file_name)
+
+    # Prepare JSON
     json_report = {}
     for model_name, scores in model_report.items():
         json_report[model_name] = {
@@ -92,7 +116,8 @@ def save_model_report_json(model_report: dict, file_path: str):
             "test_metrics": {k: round(v, 4) for k, v in scores["test"].items()}
         }
 
-    with open(file_path, "w") as f:
+    with open(full_path, "w") as f:
         json.dump(json_report, f, indent=4)
 
-    print(f"Model evaluation results saved to {file_path}")
+    logging.info(f"Model evaluation results saved to {full_path}")
+    return full_path

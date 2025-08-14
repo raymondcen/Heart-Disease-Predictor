@@ -1,0 +1,168 @@
+{
+    "Logistic Regression": {
+        "best_params": {
+            "solver": "saga",
+            "penalty": "l2",
+            "class_weight": "balanced",
+            "C": 0.1
+        },
+        "train_metrics": {
+            "accuracy": 0.8314,
+            "precision": 0.2224,
+            "recall": 0.7742,
+            "f1": 0.3455
+        },
+        "test_metrics": {
+            "accuracy": 0.8287,
+            "precision": 0.2195,
+            "recall": 0.762,
+            "f1": 0.3408
+        }
+    },
+    "Random Forest": {
+        "best_params": {
+            "n_estimators": 100,
+            "min_samples_split": 10,
+            "min_samples_leaf": 2,
+            "max_features": "sqrt",
+            "max_depth": 30,
+            "class_weight": "balanced",
+            "bootstrap": true
+        },
+        "train_metrics": {
+            "accuracy": 0.9762,
+            "precision": 0.7152,
+            "recall": 0.9749,
+            "f1": 0.8251
+        },
+        "test_metrics": {
+            "accuracy": 0.9383,
+            "precision": 0.4695,
+            "recall": 0.4694,
+            "f1": 0.4695
+        }
+    },
+    "Decision Tree": {
+        "best_params": {
+            "min_samples_split": 10,
+            "min_samples_leaf": 4,
+            "max_features": "log2",
+            "max_depth": 10,
+            "class_weight": "balanced"
+        },
+        "train_metrics": {
+            "accuracy": 0.7781,
+            "precision": 0.1744,
+            "recall": 0.7665,
+            "f1": 0.2842
+        },
+        "test_metrics": {
+            "accuracy": 0.7737,
+            "precision": 0.164,
+            "recall": 0.7067,
+            "f1": 0.2663
+        }
+    },
+    "XGBoost": {
+        "best_params": {
+            "tree_method": "hist",
+            "subsample": 1.0,
+            "scale_pos_weight": 16.709263895843765,
+            "n_estimators": 300,
+            "max_depth": 5,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.8
+        },
+        "train_metrics": {
+            "accuracy": 0.8918,
+            "precision": 0.337,
+            "recall": 0.9123,
+            "f1": 0.4922
+        },
+        "test_metrics": {
+            "accuracy": 0.864,
+            "precision": 0.2527,
+            "recall": 0.6851,
+            "f1": 0.3693
+        }
+    },
+    "CatBoost": {
+        "best_params": {
+            "learning_rate": 0.05,
+            "l2_leaf_reg": 5,
+            "iterations": 1000,
+            "depth": 8,
+            "auto_class_weights": "Balanced"
+        },
+        "train_metrics": {
+            "accuracy": 0.967,
+            "precision": 0.6355,
+            "recall": 0.9972,
+            "f1": 0.7763
+        },
+        "test_metrics": {
+            "accuracy": 0.917,
+            "precision": 0.3589,
+            "recall": 0.5452,
+            "f1": 0.4328
+        }
+    },
+    "AdaBoost": {
+        "best_params": {
+            "n_estimators": 100,
+            "learning_rate": 1
+        },
+        "train_metrics": {
+            "accuracy": 0.9448,
+            "precision": 0.5432,
+            "recall": 0.254,
+            "f1": 0.3461
+        },
+        "test_metrics": {
+            "accuracy": 0.9444,
+            "precision": 0.5454,
+            "recall": 0.2618,
+            "f1": 0.3538
+        }
+    },
+    "GradientBoosting": {
+        "best_params": {
+            "subsample": 0.8,
+            "n_estimators": 100,
+            "min_samples_leaf": 2,
+            "max_depth": 3,
+            "learning_rate": 1
+        },
+        "train_metrics": {
+            "accuracy": 0.9362,
+            "precision": 0.4402,
+            "recall": 0.4057,
+            "f1": 0.4222
+        },
+        "test_metrics": {
+            "accuracy": 0.9332,
+            "precision": 0.4185,
+            "recall": 0.3858,
+            "f1": 0.4015
+        }
+    },
+    "K-Nearest Neighbors": {
+        "best_params": {
+            "weights": "distance",
+            "n_neighbors": 5,
+            "metric": "minkowski"
+        },
+        "train_metrics": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+        },
+        "test_metrics": {
+            "accuracy": 0.942,
+            "precision": 0.5038,
+            "recall": 0.1026,
+            "f1": 0.1704
+        }
+    }
+}

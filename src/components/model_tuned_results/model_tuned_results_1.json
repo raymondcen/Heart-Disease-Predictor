@@ -1,0 +1,109 @@
+{
+    "Logistic Regression": {
+        "best_params": {
+            "solver": "saga",
+            "penalty": "l2",
+            "class_weight": "balanced",
+            "C": 0.15
+        },
+        "train_metrics": {
+            "accuracy": 0.8387,
+            "precision": 0.2244,
+            "recall": 0.7802,
+            "f1": 0.3486
+        },
+        "test_metrics": {
+            "accuracy": 0.8378,
+            "precision": 0.2272,
+            "recall": 0.7462,
+            "f1": 0.3483
+        }
+    },
+    "Random Forest": {
+        "best_params": {
+            "n_estimators": 50,
+            "min_samples_split": 6,
+            "min_samples_leaf": 5,
+            "max_features": "sqrt",
+            "max_depth": 35,
+            "class_weight": "balanced",
+            "bootstrap": true
+        },
+        "train_metrics": {
+            "accuracy": 0.9591,
+            "precision": 0.5819,
+            "recall": 0.9259,
+            "f1": 0.7147
+        },
+        "test_metrics": {
+            "accuracy": 0.9317,
+            "precision": 0.4276,
+            "recall": 0.5165,
+            "f1": 0.4679
+        }
+    },
+    "XGBoost": {
+        "best_params": {
+            "tree_method": "hist",
+            "subsample": 0.4,
+            "n_estimators": 800,
+            "max_depth": 5,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.7
+        },
+        "train_metrics": {
+            "accuracy": 0.945,
+            "precision": 0.5013,
+            "recall": 0.9902,
+            "f1": 0.6656
+        },
+        "test_metrics": {
+            "accuracy": 0.9015,
+            "precision": 0.3101,
+            "recall": 0.5675,
+            "f1": 0.4011
+        }
+    },
+    "CatBoost": {
+        "best_params": {
+            "learning_rate": 0.1,
+            "l2_leaf_reg": 8,
+            "iterations": 1000,
+            "depth": 10,
+            "auto_class_weights": "Balanced"
+        },
+        "train_metrics": {
+            "accuracy": 0.9996,
+            "precision": 0.9925,
+            "recall": 1.0,
+            "f1": 0.9962
+        },
+        "test_metrics": {
+            "accuracy": 0.9386,
+            "precision": 0.4668,
+            "recall": 0.3978,
+            "f1": 0.4295
+        }
+    },
+    "GradientBoosting": {
+        "best_params": {
+            "subsample": 0.6,
+            "n_estimators": 100,
+            "min_samples_leaf": 4,
+            "max_depth": 2,
+            "learning_rate": 0.08
+        },
+        "train_metrics": {
+            "accuracy": 0.9486,
+            "precision": 0.5863,
+            "recall": 0.2408,
+            "f1": 0.3414
+        },
+        "test_metrics": {
+            "accuracy": 0.9456,
+            "precision": 0.5811,
+            "recall": 0.2273,
+            "f1": 0.3268
+        }
+    }
+}
