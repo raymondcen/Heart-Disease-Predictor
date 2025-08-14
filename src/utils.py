@@ -33,7 +33,7 @@ def evaluate_models(X_train, y_train, X_test, y_test, models,params):
             params_model=params.get(model_name, {})
             itr =max(1, min(65, len(params_model)))  # ensures n_iter >= 1
 
-
+            logging.info(f"Begin GridSearchSV and training for {model_name}")
             #fine tune, find best hyperparamters
             gs = GridSearchCV(
                     model, 
@@ -50,9 +50,9 @@ def evaluate_models(X_train, y_train, X_test, y_test, models,params):
             model.set_params(**gs.best_params_)
             model.fit(X_train, y_train)
 
-            # Predictions
             y_train_pred = model.predict(X_train)
             y_test_pred = model.predict(X_test)
+            logging.info(f"Finished GridSearchSV and training for {model_name}")
 
             # Train metrics
             train_metrics = {
