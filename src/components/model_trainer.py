@@ -9,11 +9,17 @@ from sklearn.neighbors import KNeighborsClassifier
 from xgboost import XGBClassifier
 from catboost import CatBoostClassifier
 
+import yaml
+import json
+from collections import Counter
+
+
+
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
 
 from src.exception import CustomException
 from src.logger import logging
-from src.utils import save_object, evaluate_models
+from src.utils import save_object, evaluate_models, save_model_report_json
 
 @dataclass
 class ModelTrainerConfig:
@@ -32,42 +38,36 @@ class ModelTrainer:
                 test_arr[:,:-1],
                 test_arr[:,-1],
             )
-            
+
+
             models = {
-                "Logistic Regression": LogisticRegression(n_jobs=-1),
-                "Random Forest": RandomForestClassifier(n_jobs=-1),
+                "Logistic Regression": LogisticRegression(),
+                "Random Forest": RandomForestClassifier(),
                 "Decision Tree": DecisionTreeClassifier(),  # single-thread only
-                "XGBoost": XGBClassifier(n_jobs=-1, tree_method="hist"),  # hist = faster
-                "CatBoost": CatBoostClassifier(verbose=False, thread_count=-1),
+                "XGBoost": XGBClassifier(tree_method="hist"),  # hist = faster
+                "CatBoost": CatBoostClassifier(verbose=False),
                 "AdaBoost": AdaBoostClassifier(),  # single-thread only
                 "GradientBoosting": GradientBoostingClassifier(),  # single-thread only
-                "K-Nearest Neighbors": KNeighborsClassifier(n_jobs=-1),
+                "K-Nearest Neighbors": KNeighborsClassifier(),
             }
-            
+
+            #get params
+            with open("params.yml", "r") as f:
+                params=yaml.safe_load(f)
+
+
             logging.info('Evaluating models')
             model_report:dict=evaluate_models(
                 X_train=X_train, y_train=y_train, 
                 X_test = X_test, y_test = y_test, 
-                models=models
+                models=models,
+                params=params
             )
             logging.info('Done evaluating models')
 
             #save report
-            report_file = os.path.join("notebook/data", "model_trainer_results.txt")
-            os.makedirs("artifacts", exist_ok=True)
-            with open(report_file, "w") as f:
-                # Sort models by test F1 score
-                sorted_models = sorted(model_report.items(), key=lambda x: x[1]["test"]["f1"], reverse=True)
-                for model_name, scores in sorted_models:
-                    f.write(f"Model: {model_name}\n")
-                    f.write("Train Metrics:\n")
-                    for metric, value in scores["train"].items():
-                        f.write(f"  {metric.replace('_',' ').title()}: {value:.4f}\n")
-                    f.write("Test Metrics:\n")
-                    for metric, value in scores["test"].items():
-                        f.write(f"  {metric.replace('_',' ').title()}: {value:.4f}\n")
-                    f.write("="*40 + "\n")
-
+            report_file = os.path.join("notebook/data", "model_trainer_results.json")
+            save_model_report_json(model_report, report_file)
 
             ## best model name and f1 score
             best_model_name = max(model_report, key=lambda m: model_report[m]["test"]["f1"])
