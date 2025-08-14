@@ -1,15 +1,15 @@
 Logistic Regression:
   penalty: ["l2"]
-  C: [0.05, 0.08, 0.1, 0.12, 0.15]
-  solver: ["saga"]
+  C: [0.05, 0.08, 0.1, 0.12, 0.15, 0.18, 0.2, 0.25, 0.3]  
+  solver: ["saga", "liblinear"]  
   class_weight: ["balanced"]
 
 Random Forest:
-  n_estimators: [40, 50, 60, 75]
-  max_depth: [35,40,45,None]
-  min_samples_split: [4,5,6]
-  min_samples_leaf: [ 3, 4,5,6]
-  max_features: ["sqrt", "log2"]
+  n_estimators: [50, 75, 100, 125, 150]  
+  max_depth: [25, 30, 35, 40, 45]  
+  min_samples_split: [4, 5, 6, 7, 8]  
+  min_samples_leaf: [3, 4, 5]  
+  max_features: ["sqrt", "log2"]  
   bootstrap: [True]
   class_weight: ["balanced"]
 
@@ -21,19 +21,18 @@ Random Forest:
 #   class_weight: ["balanced"]
 
 XGBoost:
-  n_estimators: [400, 500, 600, 700, 800]
-  max_depth: [4, 5, 6]
-  learning_rate: [0.09, 0.1, 0.12, 0.14]
-  subsample: [0.2, 0.4, 0.6, 0.8, 1.0]
-  colsample_bytree: [0.7, 0.8, 0.9, 1.0]
-  # scale_pos_weight: [16.709263895843765] 
+  n_estimators: [400, 500, 600, 700, 800]  
+  max_depth: [4, 5, 6, 7]  
+  learning_rate: [0.08, 0.09, 0.1, 0.11, 0.12]  
+  subsample: [0.4, 0.5, 0.6, 0.7]  
+  colsample_bytree: [0.7, 0.8, 0.9]  
   tree_method: ["hist"]
 
 CatBoost:
-  iterations: [1000, 1500, 2000, 2500, 3000]
-  depth: [6, 8, 10, 12]
-  learning_rate: [0.06, 0.8, 0.1, 0.12]
-  l2_leaf_reg: [5, 7, 8, 9, 10]
+  iterations: [500, 750, 1000, 1250]  
+  depth: [7, 8, 9, 10]  
+  learning_rate: [0.08, 0.09, 0.1, 0.11]  
+  l2_leaf_reg: [6, 7, 8, 9]  
   auto_class_weights: ['Balanced']
   
 # AdaBoost:
@@ -41,11 +40,11 @@ CatBoost:
 #   learning_rate: [0.1, 0.8, 1, 1.2]
 
 GradientBoosting:
-  n_estimators: [65, 70, 75, 90, 100, 110]
-  learning_rate: [0.05, 0.01, 0.08, 0.1, 0.12]
-  max_depth: [1, 2, 3, 5]
-  subsample: [0.6, 0.7, 0.8, 0.9,1]
-  min_samples_leaf: [3, 4, 5, 6]
+  n_estimators: [75, 90, 100, 125]  
+  learning_rate: [0.08, 0.09, 0.1, 0.11]  
+  max_depth: [1, 2, 3]  
+  subsample: [0.6, 0.7, 0.8, 0.9]  
+  min_samples_leaf: [3, 4, 5]  
 
 # K-Nearest Neighbors:
 #   n_neighbors: [5, 7, 9]

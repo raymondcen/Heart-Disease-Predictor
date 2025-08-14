@@ -35,14 +35,14 @@ def evaluate_models(X_train, y_train, X_test, y_test, models,params):
 
 
             #fine tune, find best hyperparamters
-            gs = RandomizedSearchCV(
+            gs = GridSearchCV(
                     model, 
                     params_model, 
-                    n_iter = itr,
+                    # n_iter = itr,
                     cv=3, 
                     n_jobs=4, 
                     scoring="f1",
-                    random_state=42,
+                    # random_state=42,
                 )
             gs.fit(X_train, y_train)
 
