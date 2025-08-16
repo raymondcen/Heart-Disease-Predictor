@@ -1,0 +1,22 @@
+{
+    "Logistic Regression": {
+        "best_params": {
+            "C": 1.0,
+            "l1_ratio": 0.5,
+            "penalty": "l1",
+            "solver": "liblinear"
+        },
+        "train_metrics": {
+            "accuracy": 0.9471,
+            "precision": 0.584,
+            "recall": 0.2443,
+            "f1": 0.3445
+        },
+        "test_metrics": {
+            "accuracy": 0.945,
+            "precision": 0.5665,
+            "recall": 0.2312,
+            "f1": 0.3284
+        }
+    }
+}

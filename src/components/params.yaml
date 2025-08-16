@@ -1,24 +1,19 @@
 Logistic Regression:
-  penalty: ["l2"]
-  C: [0.05, 0.08, 0.1, 0.12, 0.15, 0.18, 0.2, 0.25, 0.3]  
+  penalty: ["l1", "l2", "elasticnet"]
+  C: [0.05, 0.1, 0.15, 0.2, 0.5, 1, 2]
+  l1_ratio: [0.2, 0.3, 0.4, 0.5, 0.6]  # Only used with elasticnet
   solver: ["saga", "liblinear"]  
-  class_weight: ["balanced"]
+  # C: [0.2]
+  # penalty: ['l2']
+  # solver: ['saga']
 
 Random Forest:
-  n_estimators: [50, 75, 100, 125, 150]  
-  max_depth: [25, 30, 35, 40, 45]  
-  min_samples_split: [4, 5, 6, 7, 8]  
-  min_samples_leaf: [3, 4, 5]  
+  n_estimators: [50, 75, 100]  
+  max_depth: [10,15,25]  
+  min_samples_split: [10, 15, 20, 25]  
+  min_samples_leaf: [5, 8, 10, 12]  
+  max_leaf_nodes: [50, 100, 150]
   max_features: ["sqrt", "log2"]  
-  bootstrap: [True]
-  class_weight: ["balanced"]
-
-# Decision Tree:
-#   max_depth: [10, 20, 30, None]
-#   min_samples_split: [2, 10, 20]
-#   min_samples_leaf: [1, 2, 4, 10]
-#   max_features: ["sqrt", "log2", None]
-#   class_weight: ["balanced"]
 
 XGBoost:
   n_estimators: [400, 500, 600, 700, 800]  
@@ -32,20 +27,10 @@ CatBoost:
   depth: [7, 8, 9, 10]  
   learning_rate: [0.08, 0.09, 0.1, 0.11]  
   l2_leaf_reg: [6, 7, 8, 9]  
-  auto_class_weights: ['Balanced']
   
-# AdaBoost:
-#   n_estimators: [75, 100, 125]
-#   learning_rate: [0.1, 0.8, 1, 1.2]
-
 GradientBoosting:
   n_estimators: [75, 90, 100, 125]  
   learning_rate: [0.08, 0.09, 0.1, 0.11]  
   max_depth: [1, 2, 3]  
   subsample: [0.6, 0.7, 0.8, 0.9]  
   min_samples_leaf: [3, 4, 5]  
-
-# K-Nearest Neighbors:
-#   n_neighbors: [5, 7, 9]
-#   weights: ["distance", "uniform"]  # distance-weighted helps minority
-#   metric: ["minkowski", "euclidean"]

@@ -40,7 +40,8 @@ class ModelTrainer:
                 test_arr[:,-1],
 
             )
-
+            
+            np.random.seed(42)
             sample_size = 50000  # 50k rows
             idx = np.random.choice(len(X_train), sample_size, replace=False)
             X_train = X_train[idx]
@@ -56,23 +57,27 @@ class ModelTrainer:
             scale_pos_weight = n_negative / n_positive
 
             models = {
-                "Logistic Regression": LogisticRegression(),
-                "Random Forest": RandomForestClassifier(
-
+                "Logistic Regression": LogisticRegression(
+                    max_iter=2000,
+                    class_weight='balanced',
+                    random_state=42
                 ),
-                # "Decision Tree": DecisionTreeClassifier(),
-                "XGBoost": XGBClassifier(
-                    scale_pos_weight=scale_pos_weight,
-                    tree_method='gpu_hist',
-                    predictor='gpu_predictor',
-                ), 
-                "CatBoost": CatBoostClassifier(
-                    verbose=False,
-                    task_type='GPU',  
-                ),
-                # "AdaBoost": AdaBoostClassifier(),
-                "GradientBoosting": GradientBoostingClassifier(),
-                # "K-Nearest Neighbors": KNeighborsClassifier(),
+                # "Random Forest": RandomForestClassifier(
+                #     class_weight='balanced',
+                #     bootstrap=True,
+                #     random_state=42
+                # ),
+                # "XGBoost": XGBClassifier(
+                #     scale_pos_weight=scale_pos_weight,
+                #     tree_method="hist", 
+                #     random_state=42
+                # ), 
+                # "CatBoost": CatBoostClassifier(
+                #     verbose=False,
+                #     auto_class_weights='Balanced'
+                #     random_state=42
+                # ),
+                # "GradientBoosting": GradientBoostingClassifier(),
             }
 
     

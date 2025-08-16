@@ -1,0 +1,21 @@
+{
+    "Logistic Regression": {
+        "best_params": {
+            "C": 0.2,
+            "penalty": "l2",
+            "solver": "saga"
+        },
+        "train_metrics": {
+            "accuracy": 0.8158,
+            "precision": 0.1991,
+            "recall": 0.7798,
+            "f1": 0.3171
+        },
+        "test_metrics": {
+            "accuracy": 0.8176,
+            "precision": 0.2104,
+            "recall": 0.7772,
+            "f1": 0.3312
+        }
+    }
+}

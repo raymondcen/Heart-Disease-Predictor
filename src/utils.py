@@ -39,7 +39,7 @@ def evaluate_models(X_train, y_train, X_test, y_test, models,params):
                     model, 
                     params_model, 
                     # n_iter = itr,
-                    cv=3, 
+                    cv=5, 
                     n_jobs=6, 
                     scoring="f1",
                     # random_state=42,
