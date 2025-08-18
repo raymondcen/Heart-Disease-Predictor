@@ -5,12 +5,14 @@ import numpy as np
 import pandas as pd
 import dill
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
-from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
+from sklearn.experimental import enable_halving_search_cv
+from sklearn.model_selection import GridSearchCV, RandomizedSearchCV, HalvingGridSearchCV
 
 from src.exception import CustomException
 from src.logger import logging
 
 import json
+
 
 def save_object(file_path, obj):
     try:
@@ -31,19 +33,37 @@ def evaluate_models(X_train, y_train, X_test, y_test, models,params):
             model = list(models.values())[i]
 
             params_model=params.get(model_name, {})
-            itr =max(1, min(65, len(params_model)))  # ensures n_iter >= 1
 
-            logging.info(f"Begin GridSearchSV and training for {model_name}")
+            logging.info(f"Begin tuning and training for {model_name}")
             #fine tune, find best hyperparamters
-            gs = GridSearchCV(
-                    model, 
-                    params_model, 
-                    # n_iter = itr,
-                    cv=5, 
-                    n_jobs=6, 
-                    scoring="f1",
-                    # random_state=42,
-                )
+            # gs = RandomizedSearchCV(
+            #         model, 
+            #         params_model, 
+            #         n_iter = 25,
+            #         cv=3, 
+            #         n_jobs=4, 
+            #         scoring="f1",
+            #         random_state=42,
+            # )
+            gs = HalvingGridSearchCV(
+                        estimator=model,
+                        param_grid=params_model,
+                        factor=3,                    # Keep top 1/3 at each iteration
+                        min_resources=1000,          #Start with 1k samples
+                        max_resources=len(X_train),  #Use all data for final candidates
+                        cv=5,                        
+                        scoring="f1",
+                        n_jobs=4,                   
+                        random_state=42,
+            )
+            # gs = GridSearchCV(
+            #         model, 
+            #         params_model, 
+            #         cv=5, 
+            #         n_jobs=5, 
+            #         scoring="f1",
+            # )
+
             gs.fit(X_train, y_train)
 
             #train

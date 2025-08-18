@@ -1,0 +1,43 @@
+{
+    "XGBoost": {
+        "best_params": {
+            "colsample_bytree": 0.8,
+            "learning_rate": 0.05,
+            "max_depth": 6,
+            "n_estimators": 150,
+            "subsample": 0.8
+        },
+        "train_metrics": {
+            "accuracy": 0.8409,
+            "precision": 0.2395,
+            "recall": 0.8276,
+            "f1": 0.3715
+        },
+        "test_metrics": {
+            "accuracy": 0.8349,
+            "precision": 0.2239,
+            "recall": 0.7729,
+            "f1": 0.3472
+        }
+    },
+    "CatBoost": {
+        "best_params": {
+            "depth": 7,
+            "iterations": 200,
+            "l2_leaf_reg": 10,
+            "learning_rate": 0.12
+        },
+        "train_metrics": {
+            "accuracy": 0.8599,
+            "precision": 0.2704,
+            "recall": 0.8641,
+            "f1": 0.412
+        },
+        "test_metrics": {
+            "accuracy": 0.8497,
+            "precision": 0.2378,
+            "recall": 0.7465,
+            "f1": 0.3606
+        }
+    }
+}

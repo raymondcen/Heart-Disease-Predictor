@@ -41,11 +41,7 @@ class ModelTrainer:
 
             )
             
-            np.random.seed(42)
-            sample_size = 50000  # 50k rows
-            idx = np.random.choice(len(X_train), sample_size, replace=False)
-            X_train = X_train[idx]
-            y_train = y_train[idx]
+
             
             #xgboost imbalance
             from collections import Counter
@@ -60,24 +56,31 @@ class ModelTrainer:
                 "Logistic Regression": LogisticRegression(
                     max_iter=2000,
                     class_weight='balanced',
+                    random_state=42,
+                ),
+                "Random Forest": RandomForestClassifier(
+                    class_weight='balanced',
+                    bootstrap=True,
                     random_state=42
                 ),
-                # "Random Forest": RandomForestClassifier(
-                #     class_weight='balanced',
-                #     bootstrap=True,
-                #     random_state=42
+                "XGBoost": XGBClassifier(
+                    scale_pos_weight=scale_pos_weight,
+                    tree_method="hist", 
+                    random_state=42,
+                    n_estimators=1000,
+                    eval_metric='logloss'
+                ), 
+                "CatBoost": CatBoostClassifier(
+                    verbose=False,
+                    auto_class_weights='Balanced',
+                    random_state=42,
+                    iterations=1000,
+                    eval_metric='Logloss',
+
+                ),
+                # "GradientBoosting": GradientBoostingClassifier(
+
                 # ),
-                # "XGBoost": XGBClassifier(
-                #     scale_pos_weight=scale_pos_weight,
-                #     tree_method="hist", 
-                #     random_state=42
-                # ), 
-                # "CatBoost": CatBoostClassifier(
-                #     verbose=False,
-                #     auto_class_weights='Balanced'
-                #     random_state=42
-                # ),
-                # "GradientBoosting": GradientBoostingClassifier(),
             }
 
     

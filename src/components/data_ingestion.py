@@ -29,13 +29,15 @@ class DataIngestion:
 
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path), exist_ok=True)
 
+            df = df.dropna(subset=['HadHeartAttack'])# drop nans in col
+
             df.to_csv(self.ingestion_config.raw_data_path, index=False, header=True)
 
             logging.info("Train Test split initiated")
             train_set, test_set=train_test_split( 
                 df, 
-                train_size=50000,      
-                test_size=15000,      
+                train_size=100000,      
+                test_size=30000,      
                 random_state=42,       
                 stratify=df['HadHeartAttack']
             )
@@ -52,6 +54,7 @@ class DataIngestion:
             raise CustomException(e,sys)
 
 if __name__=="__main__":
+    
     obj=DataIngestion()
     train_data,test_data = obj.initiate_def_ingestion()
 
