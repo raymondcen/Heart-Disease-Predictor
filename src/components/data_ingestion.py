@@ -31,6 +31,7 @@ class DataIngestion:
 
             df = df.dropna(subset=['HadHeartAttack'])# drop nans in col
 
+
             df.to_csv(self.ingestion_config.raw_data_path, index=False, header=True)
 
             logging.info("Train Test split initiated")

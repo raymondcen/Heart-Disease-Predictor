@@ -1,0 +1,62 @@
+{
+    "Logistic Regression": {
+        "best_params": {},
+        "train_metrics": {
+            "accuracy": 0.83,
+            "precision": 0.2184,
+            "recall": 0.7729,
+            "f1": 0.3406
+        },
+        "test_metrics": {
+            "accuracy": 0.8314,
+            "precision": 0.2213,
+            "recall": 0.7817,
+            "f1": 0.345
+        }
+    },
+    "Random Forest": {
+        "best_params": {},
+        "train_metrics": {
+            "accuracy": 0.8355,
+            "precision": 0.2285,
+            "recall": 0.7975,
+            "f1": 0.3552
+        },
+        "test_metrics": {
+            "accuracy": 0.831,
+            "precision": 0.2188,
+            "recall": 0.7682,
+            "f1": 0.3405
+        }
+    },
+    "XGBoost": {
+        "best_params": {},
+        "train_metrics": {
+            "accuracy": 0.8618,
+            "precision": 0.2477,
+            "recall": 0.7035,
+            "f1": 0.3664
+        },
+        "test_metrics": {
+            "accuracy": 0.8637,
+            "precision": 0.2534,
+            "recall": 0.7195,
+            "f1": 0.3748
+        }
+    },
+    "CatBoost": {
+        "best_params": {},
+        "train_metrics": {
+            "accuracy": 0.8283,
+            "precision": 0.2206,
+            "recall": 0.7984,
+            "f1": 0.3457
+        },
+        "test_metrics": {
+            "accuracy": 0.8294,
+            "precision": 0.2204,
+            "recall": 0.7893,
+            "f1": 0.3446
+        }
+    }
+}

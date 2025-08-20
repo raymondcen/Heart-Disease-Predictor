@@ -57,26 +57,43 @@ class ModelTrainer:
                     max_iter=2000,
                     class_weight='balanced',
                     random_state=42,
+                    C=0.2,
+                    penalty="l2",
+                    solver="saga"                    
                 ),
                 "Random Forest": RandomForestClassifier(
                     class_weight='balanced',
                     bootstrap=True,
-                    random_state=42
+                    random_state=42,
+                    max_depth= 15,
+                    max_features= "sqrt",
+                    max_leaf_nodes= 150,
+                    min_samples_leaf= 6,
+                    min_samples_split= 5,
+                    n_estimators= 75,
+
                 ),
                 "XGBoost": XGBClassifier(
                     scale_pos_weight=scale_pos_weight,
                     tree_method="hist", 
                     random_state=42,
-                    n_estimators=1000,
-                    eval_metric='logloss'
+                    eval_metric='logloss',
+                    colsample_bytree = 0.7,
+                    learning_rate= 0.05,
+                    max_depth = 3,
+                    n_estimators = 50,
+                    subsample = 0.6,
                 ), 
                 "CatBoost": CatBoostClassifier(
                     verbose=False,
                     auto_class_weights='Balanced',
                     random_state=42,
-                    iterations=1000,
+                    # iterations=1000,
                     eval_metric='Logloss',
-
+                    depth =5,
+                    iterations = 300,
+                    l2_leaf_reg=15,
+                    learning_rate= 0.05,
                 ),
                 # "GradientBoosting": GradientBoostingClassifier(
 

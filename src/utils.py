@@ -45,17 +45,17 @@ def evaluate_models(X_train, y_train, X_test, y_test, models,params):
             #         scoring="f1",
             #         random_state=42,
             # )
-            gs = HalvingGridSearchCV(
-                        estimator=model,
-                        param_grid=params_model,
-                        factor=3,                    # Keep top 1/3 at each iteration
-                        min_resources=1000,          #Start with 1k samples
-                        max_resources=len(X_train),  #Use all data for final candidates
-                        cv=5,                        
-                        scoring="f1",
-                        n_jobs=4,                   
-                        random_state=42,
-            )
+            # gs = HalvingGridSearchCV(
+            #             estimator=model,
+            #             param_grid=params_model,
+            #             factor=3,                    # Keep top 1/3 at each iteration
+            #             min_resources=1000,          #Start with 1k samples
+            #             max_resources=len(X_train),  #Use all data for final candidates
+            #             cv=5,                        
+            #             scoring="f1",
+            #             n_jobs=4,                   
+            #             random_state=42,
+            # )
             # gs = GridSearchCV(
             #         model, 
             #         params_model, 
@@ -64,15 +64,15 @@ def evaluate_models(X_train, y_train, X_test, y_test, models,params):
             #         scoring="f1",
             # )
 
-            gs.fit(X_train, y_train)
+            # gs.fit(X_train, y_train)
+            # model.set_params(**gs.best_params_)
 
             #train
-            model.set_params(**gs.best_params_)
             model.fit(X_train, y_train)
 
             y_train_pred = model.predict(X_train)
             y_test_pred = model.predict(X_test)
-            logging.info(f"Finished GridSearchSV and training for {model_name}")
+            logging.info(f"Finished tuning and training for {model_name}")
 
             # Train metrics
             train_metrics = {
@@ -92,7 +92,7 @@ def evaluate_models(X_train, y_train, X_test, y_test, models,params):
 
             # Store both
             report[model_name] = {
-                "best_params": gs.best_params_,
+                # "best_params": gs.best_params_,
                 "train": train_metrics,
                 "test": test_metrics
             }
