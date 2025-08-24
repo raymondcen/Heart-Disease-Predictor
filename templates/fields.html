@@ -6,6 +6,91 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Fill out the fields:</h1>
+
+    <style>
+    label {
+        display: inline-block;
+        width: 120px; 
+        margin-bottom: 2px;
+    }
+    </style>
+
+    <h1>Heart Disease Indicator</h1>
+
+   <div>
+     <h2>Demographics</h2>
+        <div>
+            <label for="age">Age</label>
+            <select name="age" id="age">
+                <option value="18-24">18-24</option>
+                <option value="25-29">25-29</option>
+                <option value="30-34">30-34</option>
+                <option value="35-39">35-39</option>
+                <option value="40-44">40-44</option>
+                <option value="45-49">45-49</option>
+                <option value="50-54">50-54</option>
+                <option value="55-59">55-59</option>
+                <option value="60-64">60-64</option>
+                <option value="65-69">65-69</option>
+                <option value="70-74">70-74</option>
+                <option value="75-79">75-79</option>
+                <option value="80+">80+</option>
+                
+            </select>
+        </div>
+        <div>
+            <label for="sex">Sex</label>
+            <select name="sex" id="sex">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+   </div>
+
+   <div>
+        <h2>Lifestyle</h2>
+        <div>
+            <label for="PhysicalActivities">Physical Activity</label>
+            <input type="radio" name="PhysicalActivities" value="yes">Yes
+            <input type="radio" name="PhysicalActivities" value="no" checked>No
+        </div>
+
+        <div>
+            <label for="AlcoholDrinkers">Drink alcohol</label>
+            <input type="radio" name="AlcoholDrinkers" value="yes">Yes
+            <input type="radio" name="AlcoholDrinkers" value="no" checked>No
+        </div>
+
+        <div>
+            <label for="SmokerStatus">Smoking status</label>
+            <select name="SmokerStatus" id="SmokerStatus">
+                <option value="never">Never smoked</option>
+                <option value="former">Former smoker</option>
+                <option value="some">Some days</option>
+                <option value="every">Every day</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="ECigUse">E-Cigarette usage</label>
+            <select name="ECigUse" id="ECigUse">
+                <option value="never">Never used</option>
+                <option value="former">Former user</option>
+                <option value="some">Some days</option>
+                <option value="every">Every day</option>
+            </select>
+        </div>
+   </div>
+
+   <div>
+        <h2>Health</h2>
+
+        <h3>Physical Attributes</h3>
+        <label for="height">Height in meters</label>
+        <input type="number" id="height" name="height" min="0" max="3">
+        <input type="submit">
+
+   </div>
+
 </body>
 </html>

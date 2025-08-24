@@ -53,4 +53,4 @@ class CustomData: #for mapping frontend inputs to backend
             HighRiskLastYear: str,
             CovidPos: str
     ):
-        
+        pass
