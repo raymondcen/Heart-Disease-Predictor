@@ -10,8 +10,8 @@
     <style>
     label {
         display: inline-block;
-        width: 120px; 
-        margin-bottom: 2px;
+        width: 150px; 
+        margin-bottom: 10px;
     }
     </style>
 
@@ -19,6 +19,7 @@
 
    <div>
      <h2>Demographics</h2>
+
         <div>
             <label for="age">Age</label>
             <select name="age" id="age">
@@ -38,6 +39,7 @@
                 
             </select>
         </div>
+
         <div>
             <label for="sex">Sex</label>
             <select name="sex" id="sex">
@@ -45,10 +47,12 @@
                 <option value="female">Female</option>
             </select>
         </div>
+
    </div>
 
    <div>
         <h2>Lifestyle</h2>
+
         <div>
             <label for="PhysicalActivities">Physical Activity</label>
             <input type="radio" name="PhysicalActivities" value="yes">Yes
@@ -80,17 +84,70 @@
                 <option value="every">Every day</option>
             </select>
         </div>
+
    </div>
 
    <div>
         <h2>Health</h2>
 
-        <h3>Physical Attributes</h3>
-        <label for="height">Height in meters</label>
-        <input type="number" id="height" name="height" min="0" max="3">
-        <input type="submit">
+        <div>
+            <label for="height">Height in meters</label>
+            <input type="number" id="height" name="height" min="2" max="635">
+            <input type="submit">
+        </div>
+        
+        <div>
+            <label for="weight">Weight in kg</label>
+            <input type="number" id="weight" name="weight" min="2" max="635">
+            <input type="submit">
+        </div>
+
+        <div>
+            <label for="bmi">BMI</label>
+            <input type="number" id="bmi" name="bmi" min="2" max="250">
+            <input type="submit">
+        </div>
+
+        <div>
+            <label for="sleep">Sleep hours</label>
+            <input type="number" id="sleep" name="sleep" min="0" max="24">
+            <input type="submit">
+        </div>
+
+        <div>
+            <label for="PhysHealthDays">Physical Health Days</label>
+            <input type="number" id="PhysHealthDays" name="PhysHealthDays" min="0" max="30">
+            <input type="submit">
+        </div>
+
+        <div>
+            <label for="MentalHealthDays">Mental Health Days</label>
+            <input type="number" id="MentalHealthDays" name="MentalHealthDays" min="0" max="30">
+            <input type="submit">
+        </div>
+
+        <div>
+            <label for="genHealth">General Health</label>
+            <select name="genHealth" id="ECigUse">
+                <option value="poor">Poor</option>
+                <option value="fair">Fair</option>
+                <option value="good">Good</option>
+                <option value="Very good">Very good</option>
+                <option value="excel">Excellent</option>
+            </select>
+        </div>
 
    </div>
+
+   <div>
+        <h2>Conditions/Diseases</h2>
+
+        <div>
+            
+        </div>
+   </div>
+
+
 
 </body>
 </html>
