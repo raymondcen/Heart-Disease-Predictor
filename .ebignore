@@ -38,8 +38,8 @@ __pycache__/
 # Keep essential production files (explicit whitelist)
 !application.py
 !requirements.txt
-!Procfile
 !.ebextensions/
 !artifacts/model.pkl
+!artifacts/preprocessor.pkl
 !src/__init__.py
 !src/utils.py
