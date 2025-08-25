@@ -35,11 +35,3 @@ __pycache__/
 *.jpg
 *.pdf
 
-# Keep essential production files (explicit whitelist)
-!application.py
-!requirements.txt
-!.ebextensions/
-!artifacts/model.pkl
-!artifacts/preprocessor.pkl
-!src/__init__.py
-!src/utils.py
