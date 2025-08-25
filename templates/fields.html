@@ -15,257 +15,302 @@
     }
     </style>
 
+    <div>
     <h1>Heart Disease Indicator</h1>
-
-   <div>
      <h2>Demographics</h2>
 
-        <div>
-            <label for="age">Age</label>
-            <select name="age" id="age">
-                <option value="18-24">18-24</option>
-                <option value="25-29">25-29</option>
-                <option value="30-34">30-34</option>
-                <option value="35-39">35-39</option>
-                <option value="40-44">40-44</option>
-                <option value="45-49">45-49</option>
-                <option value="50-54">50-54</option>
-                <option value="55-59">55-59</option>
-                <option value="60-64">60-64</option>
-                <option value="65-69">65-69</option>
-                <option value="70-74">70-74</option>
-                <option value="75-79">75-79</option>
-                <option value="80+">80+</option>
-                
-            </select>
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
+            <div>
+                <label for="age">Age</label>
+                <select name="age" id="age">
+                    <option value="18-24">18-24</option>
+                    <option value="25-29">25-29</option>
+                    <option value="30-34">30-34</option>
+                    <option value="35-39">35-39</option>
+                    <option value="40-44">40-44</option>
+                    <option value="45-49">45-49</option>
+                    <option value="50-54">50-54</option>
+                    <option value="55-59">55-59</option>
+                    <option value="60-64">60-64</option>
+                    <option value="65-69">65-69</option>
+                    <option value="70-74">70-74</option>
+                    <option value="75-79">75-79</option>
+                    <option value="80+">80+</option>
+                    
+                </select>
+            </div>
+    
+            <div>
+                <label for="sex">Sex</label>
+                <select name="sex" id="sex">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+    
         </div>
-
+    
         <div>
-            <label for="sex">Sex</label>
-            <select name="sex" id="sex">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-            </select>
+            <h2>Lifestyle</h2>
+    
+            <div>
+                <label for="PhysicalActivities">Physical Activity</label>
+                <input type="radio" name="PhysicalActivities" value="yes">Yes
+                <input type="radio" name="PhysicalActivities" value="no" checked>No
+            </div>
+    
+            <div>
+                <label for="AlcoholDrinkers">Drink alcohol</label>
+                <input type="radio" name="AlcoholDrinkers" value="yes">Yes
+                <input type="radio" name="AlcoholDrinkers" value="no" checked>No
+            </div>
+    
+            <div>
+                <label for="SmokerStatus">Smoking status</label>
+                <select name="SmokerStatus" id="SmokerStatus">
+                    <option value="never">Never smoked</option>
+                    <option value="former">Former smoker</option>
+                    <option value="some">Some days</option>
+                    <option value="every">Every day</option>
+                </select>
+            </div>
+    
+            <div>
+                <label for="ECigUse">E-Cigarette usage</label>
+                <select name="ECigUse" id="ECigUse">
+                    <option value="never">Never used</option>
+                    <option value="former">Former user</option>
+                    <option value="some">Some days</option>
+                    <option value="every">Every day</option>
+                </select>
+            </div>
+    
         </div>
-
-   </div>
-
-   <div>
-        <h2>Lifestyle</h2>
-
+    
         <div>
-            <label for="PhysicalActivities">Physical Activity</label>
-            <input type="radio" name="PhysicalActivities" value="yes">Yes
-            <input type="radio" name="PhysicalActivities" value="no" checked>No
+            <h2>Health</h2>
+    
+            <div>
+                <label for="height">Height in meters</label>
+                <input type="number" id="height" name="height" min="2" max="635">
+            </div>
+            
+            <div>
+                <label for="weight">Weight in kg</label>
+                <input type="number" id="weight" name="weight" min="2" max="635">
+            </div>
+    
+            <div>
+                <label for="bmi">BMI</label>
+                <input type="number" id="bmi" name="bmi" min="2" max="250">
+            </div>
+    
+            <div>
+                <label for="sleep">Sleep hours</label>
+                <input type="number" id="sleep" name="sleep" min="0" max="24">
+            </div>
+    
+            <div>
+                <label for="PhysHealthDays">Physical Health Days</label>
+                <input type="number" id="PhysHealthDays" name="PhysHealthDays" min="0" max="30">
+            </div>
+    
+            <div>
+                <label for="MentalHealthDays">Mental Health Days</label>
+                <input type="number" id="MentalHealthDays" name="MentalHealthDays" min="0" max="30">
+            </div>
+    
+            <div>
+                <label for="genHealth">General Health</label>
+                <select name="genHealth" id="genHealth">
+                    <option value="poor">Poor</option>
+                    <option value="fair">Fair</option>
+                    <option value="good">Good</option>
+                    <option value="Very good">Very good</option>
+                    <option value="excel">Excellent</option>
+                </select>
+            </div>
+    
         </div>
-
+    
         <div>
-            <label for="AlcoholDrinkers">Drink alcohol</label>
-            <input type="radio" name="AlcoholDrinkers" value="yes">Yes
-            <input type="radio" name="AlcoholDrinkers" value="no" checked>No
+            <h2>Conditions/Diseases</h2>
+    
+            <div>
+                <label for="angina">Had Angina</label>
+                <input type="radio" name="angina" value="yes"> Yes
+                <input type="radio" name="angina" value="no" checked> No
+            </div>
+    
+            <div>
+                <label for="stroke">Had Stroke</label>
+                <input type="radio" name="stroke" value="yes"> Yes
+                <input type="radio" name="stroke" value="no" checked> No
+            </div>
+    
+            <div>
+                <label for="asthma">Had Asthma</label>
+                <input type="radio" name="asthma" value="yes"> Yes
+                <input type="radio" name="asthma" value="no" checked> No
+            </div>
+    
+            <div>
+                <label for="skincancer">Had Skin Cancer</label>
+                <input type="radio" name="skincancer" value="yes"> Yes
+                <input type="radio" name="skincancer" value="no" checked> No
+            </div>
+    
+            <div>
+                <label for="copd">Had COPD</label>
+                <input type="radio" name="copd" value="yes"> Yes
+                <input type="radio" name="copd" value="no" checked> No
+            </div>
+    
+            <div>
+                <label for="depression">Had Depressive Disorder</label>
+                <input type="radio" name="depression" value="yes"> Yes
+                <input type="radio" name="depression" value="no" checked> No
+            </div>
+    
+            <div>
+                <label for="kidney">Had Kidney Disease</label>
+                <input type="radio" name="kidney" value="yes"> Yes
+                <input type="radio" name="kidney" value="no" checked> No
+            </div>
+    
+            <div>
+                <label for="arthritis">Had Arthritis</label>
+                <input type="radio" name="arthritis" value="yes"> Yes
+                <input type="radio" name="arthritis" value="no" checked> No
+            </div>
+    
+            <div>
+                <!-- HighRiskLastYear var in dataset -->
+                <label for="hiv">HIV/STD risk</label>
+                <input type="radio" name="highrisk" value="yes"> Yes
+                <input type="radio" name="highrisk" value="no" checked> No
+            </div>
+    
+            <div>
+                <label for="covid">COVID</label>
+                <input type="radio" name="covid" value="yes"> Yes
+                <input type="radio" name="covid" value="yesHome"> Yes (home test)
+                <input type="radio" name="covid" value="no" checked> No
+            </div>
+    
+            <div>
+                <label for="diabetes">Diabetes</label>
+                <select name="diabetes" id="diabetes">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                    <option value="yesPreggo">Yes, while pregnant</option>
+                    <option value="noBorder">No, prediabates/borderline diabetes</option>
+                </select>
+            </div>
+    
         </div>
-
+    
         <div>
-            <label for="SmokerStatus">Smoking status</label>
-            <select name="SmokerStatus" id="SmokerStatus">
-                <option value="never">Never smoked</option>
-                <option value="former">Former smoker</option>
-                <option value="some">Some days</option>
-                <option value="every">Every day</option>
-            </select>
+            <h2>Difficulties in activities</h2>
+            <div>
+                <label for="hearing">Deaf or Hard of Hearing</label>
+                <input type="radio" name="hearing" value="yes"> Yes
+                <input type="radio" name="hearing" value="no" checked> No
+            </div>
+    
+            <div>
+                <label for="vision">Blind or Vision Difficulty</label>
+                <input type="radio" name="vision" value="yes"> Yes
+                <input type="radio" name="vision" value="no" checked> No
+            </div>
+    
+            <div>
+                <label for="concentration">Difficulty Concentrating</label>
+                <input type="radio" name="concentration" value="yes"> Yes
+                <input type="radio" name="concentration" value="no" checked> No
+            </div>
+    
+            <div>
+                <label for="walking">Difficulty Walking</label>
+                <input type="radio" name="walking" value="yes"> Yes
+                <input type="radio" name="walking" value="no" checked> No
+            </div>
+    
+            <div>
+                <label for="dressing">Difficulty Dressing or Bathing</label>
+                <input type="radio" name="dressing" value="yes"> Yes
+                <input type="radio" name="dressing" value="no" checked> No
+            </div>
+    
+            <div>
+                <label for="errands">Difficulty Running Errands</label>
+                <input type="radio" name="errands" value="yes"> Yes
+                <input type="radio" name="errands" value="no" checked> No
+            </div>
+    
+            <div>
+                <label for="teeth">Removed teeth</label>
+                <select name="teeth" id="teeth">
+                    <option value="none">None</option>
+                    <option value="oneFive">1 to 5</option>
+                    <option value="sixNotAll">6+ but not all</option>
+                    <option value="all">All</option>
+                </select>
+            </div>
+    
         </div>
-
+    
         <div>
-            <label for="ECigUse">E-Cigarette usage</label>
-            <select name="ECigUse" id="ECigUse">
-                <option value="never">Never used</option>
-                <option value="former">Former user</option>
-                <option value="some">Some days</option>
-                <option value="every">Every day</option>
-            </select>
-        </div>
+            <h2>Health Screenings</h2>
+    
+            <div>
+                <label for="chestscan">Had Chest Scans</label>
+                <input type="radio" name="chestscan" value="yes"> Yes
+                <input type="radio" name="chestscan" value="no" checked> No
+            </div>
+    
+            <div>
+                <label for="hivTest">HIV Testing</label>
+                <input type="radio" name="hivTest" value="yes"> Yes
+                <input type="radio" name="hivTest" value="no" checked> No
+            </div>
+    
+            <div>
+                <label for="flu">Flu Shot (Past 12 months)</label>
+                <input type="radio" name="flu" value="yes"> Yes
+                <input type="radio" name="flu" value="no" checked> No
+            </div>
+    
+            <div>
+                <label for="pneumo">Pneumonia shot</label>
+                <input type="radio" name="pneumo" value="yes"> Yes
+                <input type="radio" name="pneumo" value="no" checked> No
+            </div>
+    
+            <div>
+                <label for="checkup">Last checkup time</label>
+                <select name="checkup" id="checkup">
+                    <option value="past1year">Past year</option>
+                    <option value="past2year">Within past 2 years</option>
+                    <option value="past5year">Within past 5 years</option>
+                    <option value="fiveMore">5+ years ago</option>
+                </select>
+            </div>
+    
+            <div>
+                <label for="tetanus">Tetanus/Tdap shot</label>
+                <select name="tetanus" id="tetanus">
+                    <option value="no">No for past 10 years</option>
+                    <option value="yesTdap">Yes, recieved Tdap</option>
+                    <option value="idkShot">Yes, but dont know type</option>
+                    <option value="yesNotTdap">Yes, but not Tdap</option>
+                </select>
+            </div>
+        </form>
 
-   </div>
+    </div>
 
-   <div>
-        <h2>Health</h2>
-
-        <div>
-            <label for="height">Height in meters</label>
-            <input type="number" id="height" name="height" min="2" max="635">
-            <input type="submit">
-        </div>
-        
-        <div>
-            <label for="weight">Weight in kg</label>
-            <input type="number" id="weight" name="weight" min="2" max="635">
-            <input type="submit">
-        </div>
-
-        <div>
-            <label for="bmi">BMI</label>
-            <input type="number" id="bmi" name="bmi" min="2" max="250">
-            <input type="submit">
-        </div>
-
-        <div>
-            <label for="sleep">Sleep hours</label>
-            <input type="number" id="sleep" name="sleep" min="0" max="24">
-            <input type="submit">
-        </div>
-
-        <div>
-            <label for="PhysHealthDays">Physical Health Days</label>
-            <input type="number" id="PhysHealthDays" name="PhysHealthDays" min="0" max="30">
-            <input type="submit">
-        </div>
-
-        <div>
-            <label for="MentalHealthDays">Mental Health Days</label>
-            <input type="number" id="MentalHealthDays" name="MentalHealthDays" min="0" max="30">
-            <input type="submit">
-        </div>
-
-        <div>
-            <label for="genHealth">General Health</label>
-            <select name="genHealth" id="genHealth">
-                <option value="poor">Poor</option>
-                <option value="fair">Fair</option>
-                <option value="good">Good</option>
-                <option value="Very good">Very good</option>
-                <option value="excel">Excellent</option>
-            </select>
-        </div>
-
-   </div>
-
-   <div>
-        <h2>Conditions/Diseases</h2>
-
-        <div>
-            <label for="angina">Had Angina</label>
-            <input type="radio" name="angina" value="yes"> Yes
-            <input type="radio" name="angina" value="no" checked> No
-        </div>
-
-        <div>
-            <label for="stroke">Had Stroke</label>
-            <input type="radio" name="stroke" value="yes"> Yes
-            <input type="radio" name="stroke" value="no" checked> No
-        </div>
-
-        <div>
-            <label for="asthma">Had Asthma</label>
-            <input type="radio" name="asthma" value="yes"> Yes
-            <input type="radio" name="asthma" value="no" checked> No
-        </div>
-
-        <div>
-            <label for="skincancer">Had Skin Cancer</label>
-            <input type="radio" name="skincancer" value="yes"> Yes
-            <input type="radio" name="skincancer" value="no" checked> No
-        </div>
-
-        <div>
-            <label for="copd">Had COPD</label>
-            <input type="radio" name="copd" value="yes"> Yes
-            <input type="radio" name="copd" value="no" checked> No
-        </div>
-
-        <div>
-            <label for="depression">Had Depressive Disorder</label>
-            <input type="radio" name="depression" value="yes"> Yes
-            <input type="radio" name="depression" value="no" checked> No
-        </div>
-
-        <div>
-            <label for="kidney">Had Kidney Disease</label>
-            <input type="radio" name="kidney" value="yes"> Yes
-            <input type="radio" name="kidney" value="no" checked> No
-        </div>
-
-        <div>
-            <label for="arthritis">Had Arthritis</label>
-            <input type="radio" name="arthritis" value="yes"> Yes
-            <input type="radio" name="arthritis" value="no" checked> No
-        </div>
-
-        <div>
-            <!-- HighRiskLastYear var in dataset -->
-            <label for="hiv">HIV/STD risk</label>
-            <input type="radio" name="highrisk" value="yes"> Yes
-            <input type="radio" name="highrisk" value="no" checked> No
-        </div>
-
-        <div>
-            <label for="covid">COVID</label>
-            <input type="radio" name="covid" value="yes"> Yes
-            <input type="radio" name="covid" value="yesHome"> Yes (home test)
-            <input type="radio" name="covid" value="no" checked> No
-        </div>
-
-        <div>
-            <label for="diabetes">Diabetes</label>
-            <select name="diabetes" id="diabetes">
-                <option value="no">No</option>
-                <option value="yes">Yes</option>
-                <option value="yesPreggo">Yes, while pregnant</option>
-                <option value="noBorder">No, prediabates/borderline diabetes</option>
-            </select>
-        </div>
-
-   </div>
-
-   <div>
-        <h2>Difficulties in activities</h2>
-        <div>
-            <label for="hearing">Deaf or Hard of Hearing</label>
-            <input type="radio" name="hearing" value="yes"> Yes
-            <input type="radio" name="hearing" value="no" checked> No
-        </div>
-
-        <div>
-            <label for="vision">Blind or Vision Difficulty</label>
-            <input type="radio" name="vision" value="yes"> Yes
-            <input type="radio" name="vision" value="no" checked> No
-        </div>
-
-        <div>
-            <label for="concentration">Difficulty Concentrating</label>
-            <input type="radio" name="concentration" value="yes"> Yes
-            <input type="radio" name="concentration" value="no" checked> No
-        </div>
-
-        <div>
-            <label for="walking">Difficulty Walking</label>
-            <input type="radio" name="walking" value="yes"> Yes
-            <input type="radio" name="walking" value="no" checked> No
-        </div>
-
-        <div>
-            <label for="dressing">Difficulty Dressing or Bathing</label>
-            <input type="radio" name="dressing" value="yes"> Yes
-            <input type="radio" name="dressing" value="no" checked> No
-        </div>
-
-        <div>
-            <label for="errands">Difficulty Running Errands</label>
-            <input type="radio" name="errands" value="yes"> Yes
-            <input type="radio" name="errands" value="no" checked> No
-        </div>
-
-        <div>
-            <label for="teeth">Removed teeth</label>
-            <select name="teeth" id="teeth">
-                <option value="none">None</option>
-                <option value="oneFive">1 to 5</option>
-                <option value="sixNotAll">6+ but not all</option>
-                <option value="all">All</option>
-            </select>
-        </div>
-
-   </div>
-
+    <h2>The prediction is {{results}}</h2>
 
 </body>
 </html>
