@@ -10,8 +10,8 @@ class PredictPipeline:
 
     def predict(self, features):
         try: 
-            model_path='artifacts\model.pkl'
-            preprocessor_path = 'artifacts\preprocessor.pkl'
+            model_path='artifacts/model.pkl'
+            preprocessor_path = 'artifacts/preprocessor.pkl'
             model = load_object(file_path=model_path)
             preprocessor = load_object(file_path=preprocessor_path)
 
@@ -20,6 +20,7 @@ class PredictPipeline:
             return predictions
         except Exception as e:
             raise CustomException(e, sys)
+            
 
 
 class CustomData: #for mapping frontend inputs to backend
