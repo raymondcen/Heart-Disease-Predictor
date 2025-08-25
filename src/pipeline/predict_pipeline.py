@@ -19,6 +19,9 @@ class PredictPipeline:
             predictions = model.predict(data_scale)
             return predictions
         except Exception as e:
+            print(f"Error in prediction: {str(e)}")
+            print(traceback.format_exc())
+            return f"Error: {str(e)}", 500
             raise CustomException(e, sys)
             
 
