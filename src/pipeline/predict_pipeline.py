@@ -1,18 +1,30 @@
 import sys
 import pandas as pd
 from src.exception import CustomException
-from src.utils import load_str
+from src.utils import load_object
 
 
 class PredictPipeline:
     def __init__(self):
         pass
 
+    def predict(self, features):
+        try: 
+            model_path='artifacts\model.pkl'
+            preprocessor_path = 'artifacts\preprocessor.pkl'
+            model = load_object(file_path=model_path)
+            preprocessor = load_object(file_path=preprocessor_path)
+
+            data_scale=preprocessor.transform(features)
+            predictions = model.predict(data_scale)
+            return predictions
+        except Exception as e:
+            raise CustomException(e, sys)
+
 
 class CustomData: #for mapping frontend inputs to backend
     def __init__(
             self,
-            State: str,
             Sex: str,
             GeneralHealth: str,
             PhysicalHealthDays: float,
@@ -53,7 +65,6 @@ class CustomData: #for mapping frontend inputs to backend
             HighRiskLastYear: str,
             CovidPos: str):
         
-        self.State = State
         self.Sex = Sex
         self.GeneralHealth = GeneralHealth
         self.PhysicalHealthDays = PhysicalHealthDays
@@ -97,7 +108,6 @@ class CustomData: #for mapping frontend inputs to backend
     def get_data_as_dataframe(self):
         try:
             custom_data_input_dict = {
-                "State": [self.State],
                 "Sex": [self.Sex],
                 "GeneralHealth": [self.GeneralHealth],
                 "PhysicalHealthDays": [self.PhysicalHealthDays],

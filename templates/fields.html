@@ -18,99 +18,97 @@
         <h2>Demographics</h2>
 
         <form action="{{ url_for('predict_datapoint') }}" method="post">
-            
+
+            <!-- Age -->
             <div>
                 <label for="AgeCategory">Age</label>
                 <select name="AgeCategory" id="AgeCategory">
-                    <option value="18-24">18-24</option>
-                    <option value="25-29">25-29</option>
-                    <option value="30-34">30-34</option>
-                    <option value="35-39">35-39</option>
-                    <option value="40-44">40-44</option>
-                    <option value="45-49">45-49</option>
-                    <option value="50-54">50-54</option>
-                    <option value="55-59">55-59</option>
-                    <option value="60-64">60-64</option>
-                    <option value="65-69">65-69</option>
-                    <option value="70-74">70-74</option>
-                    <option value="75-79">75-79</option>
-                    <option value="80+">80+</option>
+                    <option value="Age 18 to 24">18 to 24</option>
+                    <option value="Age 25 to 29">25 to 29</option>
+                    <option value="Age 30 to 34">30 to 34</option>
+                    <option value="Age 35 to 39">35 to 39</option>
+                    <option value="Age 40 to 44">40 to 44</option>
+                    <option value="Age 45 to 49">45 to 49</option>
+                    <option value="Age 50 to 54">50 to 54</option>
+                    <option value="Age 55 to 59">55 to 59</option>
+                    <option value="Age 60 to 64">60 to 64</option>
+                    <option value="Age 65 to 69">65 to 69</option>
+                    <option value="Age 70 to 74">70 to 74</option>
+                    <option value="Age 75 to 79">75 to 79</option>
+                    <option value="Age 80 or older">80 or older</option>
                 </select>
             </div>
 
+            <!-- Sex -->
             <div>
                 <label for="Sex">Sex</label>
                 <select name="Sex" id="Sex">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
                 </select>
             </div>
 
+            <!-- Race/Ethnicity -->
             <div>
                 <label for="RaceEthnicityCategory">Race/Ethnicity</label>
                 <select name="RaceEthnicityCategory" id="RaceEthnicityCategory">
-                    <option value="White">White</option>
-                    <option value="Black">Black</option>
+                    <option value="White only, Non-Hispanic">White only, Non-Hispanic</option>
+                    <option value="Black only, Non-Hispanic">Black only, Non-Hispanic</option>
+                    <option value="Other race only, Non-Hispanic">Other race only, Non-Hispanic</option>
+                    <option value="Multiracial, Non-Hispanic">Multiracial, Non-Hispanic</option>
                     <option value="Hispanic">Hispanic</option>
-                    <option value="Asian">Asian</option>
-                    <option value="Other">Other</option>
                 </select>
             </div>
 
-        </div>
-
-        <div>
+            <!-- Lifestyle -->
             <h2>Lifestyle</h2>
-            
             <div>
                 <label for="PhysicalActivities">Physical Activity</label>
-                <input type="radio" name="PhysicalActivities" value="yes"> Yes
-                <input type="radio" name="PhysicalActivities" value="no" checked> No
+                <input type="radio" name="PhysicalActivities" value="Yes"> Yes
+                <input type="radio" name="PhysicalActivities" value="No" checked> No
             </div>
 
             <div>
                 <label for="AlcoholDrinkers">Drink alcohol</label>
-                <input type="radio" name="AlcoholDrinkers" value="yes"> Yes
-                <input type="radio" name="AlcoholDrinkers" value="no" checked> No
+                <input type="radio" name="AlcoholDrinkers" value="Yes"> Yes
+                <input type="radio" name="AlcoholDrinkers" value="No" checked> No
             </div>
 
             <div>
                 <label for="SmokerStatus">Smoking status</label>
                 <select name="SmokerStatus" id="SmokerStatus">
-                    <option value="never">Never smoked</option>
-                    <option value="former">Former smoker</option>
-                    <option value="some">Some days</option>
-                    <option value="every">Every day</option>
+                    <option value="Never smoked">Never smoked</option>
+                    <option value="Former smoker">Former smoker</option>
+                    <option value="Current smoker - now smokes some days">Current smoker - now smokes some days</option>
+                    <option value="Current smoker - now smokes every day">Current smoker - now smokes every day</option>
                 </select>
             </div>
 
             <div>
                 <label for="ECigaretteUsage">E-Cigarette usage</label>
                 <select name="ECigaretteUsage" id="ECigaretteUsage">
-                    <option value="never">Never used</option>
-                    <option value="former">Former user</option>
-                    <option value="some">Some days</option>
-                    <option value="every">Every day</option>
+                    <option value="Never used e-cigarettes in my entire life">Never used e-cigarettes in my entire life</option>
+                    <option value="Use them some days">Use them some days</option>
+                    <option value="Not at all (right now)">Not at all (right now)</option>
+                    <option value="Use them every day">Use them every day</option>
                 </select>
             </div>
-        </div>
 
-        <div>
+            <!-- Health -->
             <h2>Health</h2>
-
             <div>
                 <label for="HeightInMeters">Height in meters</label>
-                <input type="number" id="HeightInMeters" name="HeightInMeters" min="2" max="3">
+                <input type="number" id="HeightInMeters" name="HeightInMeters" step="0.01" min="0" max="3">
             </div>
-            
+
             <div>
                 <label for="WeightInKilograms">Weight in kg</label>
-                <input type="number" id="WeightInKilograms" name="WeightInKilograms" min="2" max="635">
+                <input type="number" id="WeightInKilograms" name="WeightInKilograms" step="0.1" min="0" max="635">
             </div>
 
             <div>
                 <label for="BMI">BMI</label>
-                <input type="number" id="BMI" name="BMI" min="2" max="250">
+                <input type="number" id="BMI" name="BMI" step="0.1" min="0" max="250">
             </div>
 
             <div>
@@ -131,185 +129,181 @@
             <div>
                 <label for="GeneralHealth">General Health</label>
                 <select name="GeneralHealth" id="GeneralHealth">
-                    <option value="poor">Poor</option>
-                    <option value="fair">Fair</option>
-                    <option value="good">Good</option>
+                    <option value="Excellent">Excellent</option>
                     <option value="Very good">Very good</option>
-                    <option value="excellent">Excellent</option>
+                    <option value="Good">Good</option>
+                    <option value="Fair">Fair</option>
+                    <option value="Poor">Poor</option>
                 </select>
             </div>
-        </div>
 
-        <div>
+            <!-- Conditions/Diseases -->
             <h2>Conditions/Diseases</h2>
-
             <div>
                 <label for="HadAngina">Had Angina</label>
-                <input type="radio" name="HadAngina" value="yes"> Yes
-                <input type="radio" name="HadAngina" value="no" checked> No
+                <input type="radio" name="HadAngina" value="Yes"> Yes
+                <input type="radio" name="HadAngina" value="No" checked> No
             </div>
 
             <div>
                 <label for="HadStroke">Had Stroke</label>
-                <input type="radio" name="HadStroke" value="yes"> Yes
-                <input type="radio" name="HadStroke" value="no" checked> No
+                <input type="radio" name="HadStroke" value="Yes"> Yes
+                <input type="radio" name="HadStroke" value="No" checked> No
             </div>
 
             <div>
                 <label for="HadAsthma">Had Asthma</label>
-                <input type="radio" name="HadAsthma" value="yes"> Yes
-                <input type="radio" name="HadAsthma" value="no" checked> No
+                <input type="radio" name="HadAsthma" value="Yes"> Yes
+                <input type="radio" name="HadAsthma" value="No" checked> No
             </div>
 
             <div>
                 <label for="HadSkinCancer">Had Skin Cancer</label>
-                <input type="radio" name="HadSkinCancer" value="yes"> Yes
-                <input type="radio" name="HadSkinCancer" value="no" checked> No
+                <input type="radio" name="HadSkinCancer" value="Yes"> Yes
+                <input type="radio" name="HadSkinCancer" value="No" checked> No
             </div>
 
             <div>
                 <label for="HadCOPD">Had COPD</label>
-                <input type="radio" name="HadCOPD" value="yes"> Yes
-                <input type="radio" name="HadCOPD" value="no" checked> No
+                <input type="radio" name="HadCOPD" value="Yes"> Yes
+                <input type="radio" name="HadCOPD" value="No" checked> No
             </div>
 
             <div>
                 <label for="HadDepressiveDisorder">Had Depressive Disorder</label>
-                <input type="radio" name="HadDepressiveDisorder" value="yes"> Yes
-                <input type="radio" name="HadDepressiveDisorder" value="no" checked> No
+                <input type="radio" name="HadDepressiveDisorder" value="Yes"> Yes
+                <input type="radio" name="HadDepressiveDisorder" value="No" checked> No
             </div>
 
             <div>
                 <label for="HadKidneyDisease">Had Kidney Disease</label>
-                <input type="radio" name="HadKidneyDisease" value="yes"> Yes
-                <input type="radio" name="HadKidneyDisease" value="no" checked> No
+                <input type="radio" name="HadKidneyDisease" value="Yes"> Yes
+                <input type="radio" name="HadKidneyDisease" value="No" checked> No
             </div>
 
             <div>
                 <label for="HadArthritis">Had Arthritis</label>
-                <input type="radio" name="HadArthritis" value="yes"> Yes
-                <input type="radio" name="HadArthritis" value="no" checked> No
+                <input type="radio" name="HadArthritis" value="Yes"> Yes
+                <input type="radio" name="HadArthritis" value="No" checked> No
             </div>
 
             <div>
                 <label for="HighRiskLastYear">HIV/STD risk (High Risk Last Year)</label>
-                <input type="radio" name="HighRiskLastYear" value="yes"> Yes
-                <input type="radio" name="HighRiskLastYear" value="no" checked> No
+                <input type="radio" name="HighRiskLastYear" value="Yes"> Yes
+                <input type="radio" name="HighRiskLastYear" value="No" checked> No
             </div>
 
             <div>
                 <label for="CovidPos">COVID</label>
-                <input type="radio" name="CovidPos" value="yes"> Yes
-                <input type="radio" name="CovidPos" value="yesHome"> Yes (home test)
-                <input type="radio" name="CovidPos" value="no" checked> No
+                <input type="radio" name="CovidPos" value="No" checked> No
+                <input type="radio" name="CovidPos" value="Yes"> Yes
+                <input type="radio" name="CovidPos" value="Tested positive using home test without a health professional"> Yes (home test)
             </div>
 
             <div>
                 <label for="HadDiabetes">Diabetes</label>
                 <select name="HadDiabetes" id="HadDiabetes">
-                    <option value="no">No</option>
-                    <option value="yes">Yes</option>
-                    <option value="yesPreggo">Yes, while pregnant</option>
-                    <option value="noBorder">No, prediabetes/borderline diabetes</option>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="Yes, but only during pregnancy (female)">Yes (while pregnant)</option>
+                    <option value="No, pre-diabetes or borderline diabetes">No, Prediabetes/Borderline Diabetes</option>
                 </select>
             </div>
-        </div>
 
-        <div>
+            <!-- Difficulties in activities -->
             <h2>Difficulties in activities</h2>
             <div>
                 <label for="DeafOrHardOfHearing">Deaf or Hard of Hearing</label>
-                <input type="radio" name="DeafOrHardOfHearing" value="yes"> Yes
-                <input type="radio" name="DeafOrHardOfHearing" value="no" checked> No
+                <input type="radio" name="DeafOrHardOfHearing" value="Yes"> Yes
+                <input type="radio" name="DeafOrHardOfHearing" value="No" checked> No
             </div>
 
             <div>
                 <label for="BlindOrVisionDifficulty">Blind or Vision Difficulty</label>
-                <input type="radio" name="BlindOrVisionDifficulty" value="yes"> Yes
-                <input type="radio" name="BlindOrVisionDifficulty" value="no" checked> No
+                <input type="radio" name="BlindOrVisionDifficulty" value="Yes"> Yes
+                <input type="radio" name="BlindOrVisionDifficulty" value="No" checked> No
             </div>
 
             <div>
                 <label for="DifficultyConcentrating">Difficulty Concentrating</label>
-                <input type="radio" name="DifficultyConcentrating" value="yes"> Yes
-                <input type="radio" name="DifficultyConcentrating" value="no" checked> No
+                <input type="radio" name="DifficultyConcentrating" value="Yes"> Yes
+                <input type="radio" name="DifficultyConcentrating" value="No" checked> No
             </div>
 
             <div>
                 <label for="DifficultyWalking">Difficulty Walking</label>
-                <input type="radio" name="DifficultyWalking" value="yes"> Yes
-                <input type="radio" name="DifficultyWalking" value="no" checked> No
+                <input type="radio" name="DifficultyWalking" value="Yes"> Yes
+                <input type="radio" name="DifficultyWalking" value="No" checked> No
             </div>
 
             <div>
                 <label for="DifficultyDressingBathing">Difficulty Dressing or Bathing</label>
-                <input type="radio" name="DifficultyDressingBathing" value="yes"> Yes
-                <input type="radio" name="DifficultyDressingBathing" value="no" checked> No
+                <input type="radio" name="DifficultyDressingBathing" value="Yes"> Yes
+                <input type="radio" name="DifficultyDressingBathing" value="No" checked> No
             </div>
 
             <div>
                 <label for="DifficultyErrands">Difficulty Running Errands</label>
-                <input type="radio" name="DifficultyErrands" value="yes"> Yes
-                <input type="radio" name="DifficultyErrands" value="no" checked> No
+                <input type="radio" name="DifficultyErrands" value="Yes"> Yes
+                <input type="radio" name="DifficultyErrands" value="No" checked> No
             </div>
 
             <div>
                 <label for="RemovedTeeth">Removed teeth</label>
                 <select name="RemovedTeeth" id="RemovedTeeth">
-                    <option value="none">None</option>
-                    <option value="oneFive">1 to 5</option>
-                    <option value="sixNotAll">6+ but not all</option>
-                    <option value="all">All</option>
+                    <option value="None of them">None of them</option>
+                    <option value="1 to 5">1 to 5</option>
+                    <option value="6 or more, but not all">6 or more, but not all</option>
+                    <option value="All">All</option>
                 </select>
             </div>
-        </div>
 
-        <div>
+            <!-- Health Screenings -->
             <h2>Health Screenings</h2>
-
             <div>
                 <label for="ChestScan">Had Chest Scans</label>
-                <input type="radio" name="ChestScan" value="yes"> Yes
-                <input type="radio" name="ChestScan" value="no" checked> No
+                <input type="radio" name="ChestScan" value="Yes"> Yes
+                <input type="radio" name="ChestScan" value="No" checked> No
             </div>
 
             <div>
                 <label for="HIVTesting">HIV Testing</label>
-                <input type="radio" name="HIVTesting" value="yes"> Yes
-                <input type="radio" name="HIVTesting" value="no" checked> No
+                <input type="radio" name="HIVTesting" value="Yes"> Yes
+                <input type="radio" name="HIVTesting" value="No" checked> No
             </div>
 
             <div>
                 <label for="FluVaxLast12">Flu Shot (Past 12 months)</label>
-                <input type="radio" name="FluVaxLast12" value="yes"> Yes
-                <input type="radio" name="FluVaxLast12" value="no" checked> No
+                <input type="radio" name="FluVaxLast12" value="Yes"> Yes
+                <input type="radio" name="FluVaxLast12" value="No" checked> No
             </div>
 
             <div>
                 <label for="PneumoVaxEver">Pneumonia shot</label>
-                <input type="radio" name="PneumoVaxEver" value="yes"> Yes
-                <input type="radio" name="PneumoVaxEver" value="no" checked> No
+                <input type="radio" name="PneumoVaxEver" value="Yes"> Yes
+                <input type="radio" name="PneumoVaxEver" value="No" checked> No
             </div>
-
-            <div>
-                <label for="LastCheckupTime">Last checkup time</label>
-                <select name="LastCheckupTime" id="LastCheckupTime">
-                    <option value="past1year">Past year</option>
-                    <option value="past2year">Within past 2 years</option>
-                    <option value="past5year">Within past 5 years</option>
-                    <option value="fiveMore">5+ years ago</option>
-                </select>
-            </div>
-
+            
             <div>
                 <label for="TetanusLast10Tdap">Tetanus/Tdap shot</label>
                 <select name="TetanusLast10Tdap" id="TetanusLast10Tdap">
-                    <option value="no">No for past 10 years</option>
-                    <option value="yesTdap">Yes, received Tdap</option>
-                    <option value="idkShot">Yes, but don't know type</option>
-                    <option value="yesNotTdap">Yes, but not Tdap</option>
+                    <option value="Yes, received Tdap">Yes, Tdap</option>
+                    <option value="Yes, received tetanus shot, but not Tdap">Yes, tetanus but not Tdap</option>
+                    <option value="Yes, received tetanus shot but not sure what type">Yes, tetanus but not sure what type</option>
+                    <option value="No, did not receive any tetanus shot in the past 10 years">No, not within past 10 years</option>
                 </select>
             </div>
+            <div>
+                <label for="LastCheckupTime">Last checkup time</label>
+                <select name="LastCheckupTime" id="LastCheckupTime">
+                    <option value="Within past year (anytime less than 12 months ago)">Within past year</option>
+                    <option value="Within past 2 years (1 year but less than 2 years ago)">Within past 2 years</option>
+                    <option value="Within past 5 years (2 years but less than 5 years ago)">Within past 5 years</option>
+                    <option value="5 or more years ago">5 or more years ago</option>
+                </select>
+            </div>
+
+            <button type="submit">Predict</button>
         </form>
     </div>
 

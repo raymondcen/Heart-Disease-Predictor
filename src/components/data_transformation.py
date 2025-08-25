@@ -31,7 +31,7 @@ class DataTransformation:
                 'HeightInMeters', 'WeightInKilograms', 'BMI'
             ]
             categorical_columns = [
-                'State', 'Sex', 'GeneralHealth', 'LastCheckupTime',
+                'Sex', 'GeneralHealth', 'LastCheckupTime',
                 'PhysicalActivities', 'RemovedTeeth', 'HadAngina', 'HadStroke',
                 'HadAsthma', 'HadSkinCancer', 'HadCOPD', 'HadDepressiveDisorder',
                 'HadKidneyDisease', 'HadArthritis', 'HadDiabetes',
