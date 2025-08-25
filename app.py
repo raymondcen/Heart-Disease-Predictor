@@ -18,9 +18,9 @@ def index():
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict_datapoint():
-    print("Form data received:")
-    for key, value in request.form.items():
-        print(f"{key}: '{value}'")
+    # print("Form data received:")
+    # for key, value in request.form.items():
+    #     print(f"{key}: '{value}'")
     if request.method=='GET':
         return render_template('fields.html')
     else:
@@ -72,7 +72,11 @@ def predict_datapoint():
 
         predict_pipeline=PredictPipeline()
         results = predict_pipeline.predict(predictions_df)
-        return render_template('fields.html', results=results[0])
+        if results[0] == 0:
+            msg = "you DO NOT have heart disease."
+        else:
+            msg = "you DO have heart disease."
+        return render_template('fields.html', results=msg)
 
 if __name__== "__main__":
     app.run(host="0.0.0.0", debug=True)
