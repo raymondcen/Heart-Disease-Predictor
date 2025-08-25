@@ -1,0 +1,45 @@
+# .ebignore file (only in production branch)
+# This tells EB what NOT to deploy, but files stay in git
+
+# Development folders
+notebook/
+notebooks/
+logs/
+catboost_info/
+experiments/
+data/
+models/development/
+
+# Development files
+*.json
+*.ipynb
+model_tuned_results_*.json
+best_params.json
+requirements_dev.txt
+
+# System files
+__pycache__/
+*.pyc
+*.pyo
+.env
+.venv/
+*.egg-info/
+.DS_Store
+.git/
+.gitignore
+
+# Large files that aren't needed for production
+*.csv
+*.xlsx
+*.png
+*.jpg
+*.pdf
+
+# Keep essential production files (explicit whitelist)
+!application.py
+!requirements.txt
+!Procfile
+!.ebextensions/
+!artifacts/model.pkl
+!src/__init__.py
+!src/utils.py
