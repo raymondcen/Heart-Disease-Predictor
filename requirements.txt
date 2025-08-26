@@ -3,6 +3,6 @@ numpy
 scikit-learn
 dill
 pyyaml
-xgboost
+xgboost==1.7.6
 flask
 -e .
