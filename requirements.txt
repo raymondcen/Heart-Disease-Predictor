@@ -3,5 +3,6 @@ numpy
 scikit-learn
 dill
 pyyaml
+xgboost
 flask
 -e .
