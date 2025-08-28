@@ -1,8 +1,11 @@
 pandas
 numpy
+seaborn
+matplotlib
 scikit-learn
+catboost
+xgboost==1.7.6
 dill
 pyyaml
-xgboost==1.7.6
 flask
 -e .

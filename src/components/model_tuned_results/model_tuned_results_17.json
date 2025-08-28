@@ -1,0 +1,17 @@
+{
+    "XGBoost": {
+        "best_params": {},
+        "train_metrics": {
+            "accuracy": 0.8625,
+            "precision": 0.2491,
+            "recall": 0.7055,
+            "f1": 0.3682
+        },
+        "test_metrics": {
+            "accuracy": 0.8632,
+            "precision": 0.2517,
+            "recall": 0.7142,
+            "f1": 0.3722
+        }
+    }
+}

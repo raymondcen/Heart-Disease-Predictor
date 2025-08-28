@@ -135,8 +135,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.artifacts
-artifacts/
+artifacts/*.csv
 .env
 .envrc
 .venv
@@ -211,3 +210,4 @@ __marimo__/
 #data
 notebook/data/heart_2022_with_nans.csv
 notebook/data/heart_clean.csv
+catboost_info/
