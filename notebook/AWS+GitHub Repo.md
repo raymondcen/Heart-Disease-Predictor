@@ -1,4 +1,3 @@
-README.md later
 Web application
     - column names dont need to match preprocessor.pkl but would be more helpful when matching
     - all values (value="") present in fields HTML form needs to match whats in preprocessor.pkl
