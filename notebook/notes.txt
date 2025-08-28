@@ -15,5 +15,3 @@ Deployment
     - EB enviorment
         - need to allow more permissions
             - add AWSElasticbeanstalkService to permission policies in roles
-        - increase root volume
-            - GP3 -> 20GB
