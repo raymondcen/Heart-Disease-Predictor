@@ -1,0 +1,10 @@
+.venv
+venv/
+.catboost_info
+catboost_info/
+.Heart_Disease_Predictor.egg-info
+Heart_Disease_Predictor.egg-info/
+artifacts/*.csv
+.logs
+logs/
+requirements_dev.txt
