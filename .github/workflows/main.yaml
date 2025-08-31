@@ -83,8 +83,8 @@ jobs:
       - name: Pull latest images
         run: docker pull ${{ secrets.AWS_ECR_LOGIN_URI }}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
       
-      - name: Stop and remove container if running
-        run: docker ps -q --filter "name=heart-disease" | grep -q . && docker stop heart-disease && docker rm -fv heart-disease
+      # - name: Stop and remove container if running
+      #   run: docker ps -q --filter "name=heart-disease" | grep -q . && docker stop heart-disease && docker rm -fv heart-disease
 
       # - name: Clean docker space
       #   run: |
