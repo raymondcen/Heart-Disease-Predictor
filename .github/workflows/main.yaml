@@ -3,7 +3,7 @@ name: workflow
 on:
   push:
     branches:
-      - aws-docker-prod
+      - aws-docker
     paths-ignore:
       - 'README.md'
 
