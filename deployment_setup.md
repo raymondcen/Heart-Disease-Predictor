@@ -1,5 +1,5 @@
 # Deployment using CI/CD pipelines and GitHub Actions using AWS ECR2 and EC2 instance.    
-# 1. Setup Dockerfile image
+## 1. Setup Dockerfile image
 ## 2. Setup GitHub Workflow (.github/workflow/main.yaml) from Github Actions
 ## 3. Setup IAM user in AWS and get access and secret access key
 ## 4. Setup ECR in AWS
