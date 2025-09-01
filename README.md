@@ -62,5 +62,5 @@ The project highlights:
 Built with additional instructions from [Krish Naik YouTube](https://www.youtube.com/playlist?list=PLZoTAELRMXVPS-dOaVbAux22vzqdgoGhG)
 
 
-- ivan wong helped me out checkout his [ivan wong](github.com/ivanw5x)
+- ivan wong helped me out checkout his [ivan wong](https://github.com/IvanW5X)
 
