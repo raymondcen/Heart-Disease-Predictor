@@ -60,7 +60,3 @@ The project highlights:
 - [Deployment instructions](https://github.com/raymondcen/Heart-Disease-Predictor/blob/azure-docker/azure_docker_deployment.md)
 
 Built with additional instructions from [Krish Naik YouTube](https://www.youtube.com/playlist?list=PLZoTAELRMXVPS-dOaVbAux22vzqdgoGhG)
-
-
-- ivan wong helped me out checkout his [ivan wong](https://github.com/IvanW5X)
-
