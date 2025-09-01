@@ -97,7 +97,7 @@ class ModelTrainer:
                 # ),
                 # "GradientBoosting": GradientBoostingClassifier(
 
-                # )
+                # ),
             }
 
     
