@@ -1,9 +1,14 @@
 # Heart Disease Classification Project
 
 ## Overview
-This project focuses on building and deploying a **machine learning model** to classify the likelihood of heart disease from tabular patient data.  
-The workflow includes **data exploration (EDA)**, **model training**, **hyperparameter tuning**, and **deployment** across multiple cloud environments.
+This project applies machine learning to predict the likelihood of heart disease using tabular patient data. It demonstrates the complete lifecycle of a data science project, starting from exploratory data analysis (EDA), to model training and tuning, to deployment in different environments. The goal was to practice not only building predictive models but also implementing them in production-ready pipelines and deploying them using modern cloud platforms.  
 
+The project highlights:
+- Use of structured healthcare-related data to classify heart disease risk.  
+- Data preprocessing, feature analysis, and statistical exploration through EDA.  
+- Model development using scikit-learn and tuning with multiple hyperparameter search methods.  
+- A reusable prediction pipeline that handles preprocessing and model inference consistently.  
+- Multiple cloud deployment strategies showing flexibility across AWS and Azure services.  
 
 ## Tech Stack
 - **Python**
@@ -54,5 +59,5 @@ The workflow includes **data exploration (EDA)**, **model training**, **hyperpar
 - Served predictions through the hosted web application
 - [Deployment instructions](https://github.com/raymondcen/Heart-Disease-Predictor/blob/azure-docker/azure_docker_deployment.md)
 
-Built with additional instructions from [https://www.youtube.com/playlist?list=PLZoTAELRMXVPS-dOaVbAux22vzqdgoGhG]
+Built with additional instructions from [Krish Naik YouTube](https://www.youtube.com/playlist?list=PLZoTAELRMXVPS-dOaVbAux22vzqdgoGhG)
 
