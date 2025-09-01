@@ -1,6 +1,6 @@
 # Deploying with Azure Web App
-## 1. Setup container registry
-## 2. Docker setup in local and push to container registry
+## 1. Setup Azure container registry
+## 2. Docker setup in local and push to Azure container registry
 - Run in ternminal:
     - docker build -t loginservername.azurecr.io/resourcegroup:latest
     - docker login loginservername.azurecr.io
