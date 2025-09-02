@@ -60,3 +60,4 @@ The project highlights:
 - [Deployment instructions](https://github.com/raymondcen/Heart-Disease-Predictor/blob/azure-docker/deployment.md)
 
 Built with additional instructions from [Krish Naik YouTube](https://www.youtube.com/playlist?list=PLZoTAELRMXVPS-dOaVbAux22vzqdgoGhG)
+Dataset from [Kaggle](https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease)
