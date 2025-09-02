@@ -51,12 +51,12 @@ The project highlights:
 - Containerized the application with Docker  
 - Stored images in Elastic Container Registry (ECR)  
 - Deployed to AWS infrastructure using Docker containers
-- [Deployment instructions](google.com)
+- [Deployment instructions](deployment_setup.md)
 
 ### Azure (Docker + Web App)
 - Built Docker image for deployment  
 - Pushed image to Azure Web App for Containers  
 - Served predictions through the hosted web application
-- [Deployment instructions](https://github.com/raymondcen/Heart-Disease-Predictor/blob/azure-docker/azure_docker_deployment.md)
+- [Deployment instructions](https://github.com/raymondcen/Heart-Disease-Predictor/blob/azure-docker/deployment_setup.md)
 
 Built with additional instructions from [Krish Naik YouTube](https://www.youtube.com/playlist?list=PLZoTAELRMXVPS-dOaVbAux22vzqdgoGhG)
