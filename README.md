@@ -46,18 +46,18 @@ The project highlights:
 - Automated CI/CD pipeline with AWS CodePipeline  
 - Deployed to Elastic Beanstalk with an EC2 backend  
 - Integrated with GitHub for continuous updates  
-- [Deployment instructions](../blob/aws-repo/deployment.md)
+- [Deployment instructions](../aws-repo/deployment.md)
 ### AWS (Docker + ECR)
 - Containerized the application with Docker  
 - Stored images in Elastic Container Registry (ECR)  
 - Deployed to AWS infrastructure using Docker containers
-- [Deployment instructions](../blob/aws-docker/deployment.md)
+- [Deployment instructions](../aws-docker/deployment.md)
 
 ### Azure (Docker + Web App)
 - Built Docker image for deployment  
 - Pushed image to Azure Web App for Containers  
 - Served predictions through the hosted web application
-- [Deployment instructions](../blob/azure-docker/deployment.md)
+- [Deployment instructions](../azure-docker/deployment.md)
 
 ## Resources
 
