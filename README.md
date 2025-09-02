@@ -46,17 +46,17 @@ The project highlights:
 - Automated CI/CD pipeline with AWS CodePipeline  
 - Deployed to Elastic Beanstalk with an EC2 backend  
 - Integrated with GitHub for continuous updates  
-- [Deployment isntructions](https://github.com/raymondcen/Heart-Disease-Predictor/blob/aws-docker/deployment_setup.md)
+- [Deployment isntructions](https://github.com/raymondcen/Heart-Disease-Predictor/blob/aws-docker/deployment.md)
 ### AWS (Docker + ECR)
 - Containerized the application with Docker  
 - Stored images in Elastic Container Registry (ECR)  
 - Deployed to AWS infrastructure using Docker containers
-- [Deployment instructions](deployment_setup.md)
+- [Deployment instructions](deployment.md)
 
 ### Azure (Docker + Web App)
 - Built Docker image for deployment  
 - Pushed image to Azure Web App for Containers  
 - Served predictions through the hosted web application
-- [Deployment instructions](https://github.com/raymondcen/Heart-Disease-Predictor/blob/azure-docker/deployment_setup.md)
+- [Deployment instructions](https://github.com/raymondcen/Heart-Disease-Predictor/blob/azure-docker/deployment.md)
 
 Built with additional instructions from [Krish Naik YouTube](https://www.youtube.com/playlist?list=PLZoTAELRMXVPS-dOaVbAux22vzqdgoGhG)
