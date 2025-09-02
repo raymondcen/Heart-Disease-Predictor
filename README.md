@@ -46,7 +46,7 @@ The project highlights:
 - Automated CI/CD pipeline with AWS CodePipeline  
 - Deployed to Elastic Beanstalk with an EC2 backend  
 - Integrated with GitHub for continuous updates  
-- [Deployment isntructions](https://github.com/raymondcen/Heart-Disease-Predictor/blob/aws-docker/deployment.md)
+- [Deployment instructions](https://github.com/raymondcen/Heart-Disease-Predictor/blob/aws-docker/deployment.md)
 ### AWS (Docker + ECR)
 - Containerized the application with Docker  
 - Stored images in Elastic Container Registry (ECR)  
