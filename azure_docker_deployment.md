@@ -5,3 +5,4 @@
     - docker build -t loginservername.azurecr.io/resourcegroup:latest
     - docker login loginservername.azurecr.io
     - docker push loginservername.azurecr.io/resourcegroup:latest
+## 3.
