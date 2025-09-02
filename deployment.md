@@ -8,7 +8,7 @@
 ## 4. Create and setup a new ECR in AWS
 ## 5. Create and setup a EC2 instance 
 - ubuntu, t3.medium, setup/create key pair, allow all traffic etc.
-### 5.1 Once setup, connect to the instance and run the following in the terminal
+- Once setup, connect to the instance and run the following in the terminal
 - Optional
 ```
     sudo apt-get update -y
@@ -21,8 +21,8 @@
     sudo usermod -aG docker ubuntu
     newgrp docker
 ```
-## 6. Create and setu runner in GitHub. 
-### 6.1 Execute code provided into EC2 instance terminal
+## 6. Create and setup runner in GitHub. 
+- Execute code provided into EC2 instance terminal
 ## 6. Setup secret keys/variables in GitHub
   - AWS access and secret key from IAM user
   - AWS region
