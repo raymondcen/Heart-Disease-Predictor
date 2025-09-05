@@ -57,6 +57,7 @@ The project highlights:
 - Built Docker image for deployment  
 - Pushed image to Azure Web App for Containers  
 - Served predictions through the hosted web application
+- Automated CI/CD pipeline with GitHub Actions
 - [Deployment instructions](../azure-docker/deployment.md)
 
 ## Resources
